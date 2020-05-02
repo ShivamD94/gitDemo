@@ -1,5 +1,8 @@
 package common;
 
+/**
+ * We can declare all constant here
+ */
 public class Constants {
     public static final String BASEPATH=System.getProperty("user.dir");
     public static final String CONFIG_FILE=BASEPATH+"/src/test/resources/properties/Config.properties";

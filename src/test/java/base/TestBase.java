@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -18,13 +19,14 @@ import java.util.Properties;
 import static common.Constants.*;
 
 /**
- * Base Clase
+ * Test Base Clase
+ * your steps file will extend this class
  */
 public class TestBase {
 
     public static RequestSpecification reqSpec;
     public static Logger log = Logger.getLogger("devpinoyLogger");
-
+    public static ResponseSpecification resSpec;
     /**
      *
      * @return
@@ -34,10 +36,9 @@ public class TestBase {
 
         if(reqSpec==null) {
             PropertyConfigurator.configure(LOG4J);
-            PrintStream apilogs = new PrintStream(new FileOutputStream("apilogs.txt"));
+            PrintStream apilogs = new PrintStream(new FileOutputStream("src/test/resources/logs/restapirequest_response.txt"));
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
-                    .addQueryParam("key", "qaclick123")
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
                     .setContentType(ContentType.JSON).build();
             log.info("API Request Specification created");
@@ -71,6 +72,8 @@ public class TestBase {
     public String getJsonPath(Response response, String key)
     {
         String resp=response.asString();
+        System.out.println(resp);
+        log.info("Json "+resp);
         JsonPath   js = new JsonPath(resp);
         return js.get(key).toString();
     }

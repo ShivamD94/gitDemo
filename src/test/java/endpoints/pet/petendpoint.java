@@ -1,12 +1,15 @@
 package endpoints.pet;
 
-public enum petresource {
+/**
+ * Enum to mention  pet endpoints
+ */
+public enum petendpoint {
 
-    GetPet("/v2/pet"),
+    GetPet("/v2/pet/11"),
     AddPet("/v2/pet");
     private String resource;
 
-    petresource(String resource)
+    petendpoint(String resource)
     {
         this.resource=resource;
     }

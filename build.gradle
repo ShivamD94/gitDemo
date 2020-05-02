@@ -1,41 +1,90 @@
-plugins {
-    id 'java'
-    id "com.github.spacialcircumstances.gradle-cucumber-reporting" version "0.1.19"
-}
-
-group 'org.fdp'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
 repositories {
-    mavenCentral()
+    jcenter()
+    mavenLocal()
 }
 
-cucumberReports {
-    outputDir = file('/reports')
-    buildId = '0'
-    reports = files('reports/cucumber-report.json', 'reports/cucumber-json.json')
-    projectNameOverride="FDP-Platform services test"
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.81")
+    }
 }
 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+configurations.all {
+    resolutionStrategy {
+        force "io.cucumber:cucumber-core:4.2.0"
+    }
+}
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
-// https://mvnrepository.com/artifact/io.rest-assured/json-path
-    compile group: 'io.rest-assured', name: 'json-path', version: '4.2.0'
-// https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
-    compile group: 'io.rest-assured', name: 'json-schema-validator', version: '4.2.0'
-// https://mvnrepository.com/artifact/org.testng/testng
-    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
-    compile group: 'io.cucumber', name: 'cucumber-java', version: '5.6.0'
-    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '5.6.0'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.3'
-    testCompile group: 'log4j', name: 'log4j', version: '1.2.17'
-
-
+    testCompile('net.serenity-bdd:serenity-core:2.0.81') {
+        exclude group: "io.cucumber", module: "cucumber-core"
+    }
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-rest-assured
+//    testCompile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.2.2'
+//    testCompile group: 'net.serenity-bdd', name: 'serenity-junit', version: '1.9.45'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
+    testCompile 'net.serenity-bdd:serenity-cucumber4:1.0.21'
+    testCompile 'io.cucumber:cucumber-java:4.2.0'
+    testCompile 'io.cucumber:cucumber-junit:4.2.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.5.2'
+    compile 'org.assertj:assertj-core:3.8.0'
+//    Added more library by me
+    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.26'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
 }
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
 
-test {
-    systemProperty "cucumber.options", System.getProperty("cucumber.options")
-}
+
+//plugins {
+//    id 'java'
+//    id "com.github.spacialcircumstances.gradle-cucumber-reporting" version "0.1.19"
+//}
+//
+//group 'org.fdp'
+//version '1.0-SNAPSHOT'
+//
+//sourceCompatibility = 1.8
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//cucumberReports {
+//    outputDir = file('/reports')
+//    buildId = '0'
+//    reports = files('reports/cucumber-report.json', 'reports/cucumber-json.json')
+//    projectNameOverride="FDP-Platform services test"
+//}
+//
+//dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
+//// https://mvnrepository.com/artifact/io.rest-assured/json-path
+//    compile group: 'io.rest-assured', name: 'json-path', version: '4.2.0'
+//// https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
+//    compile group: 'io.rest-assured', name: 'json-schema-validator', version: '4.2.0'
+//// https://mvnrepository.com/artifact/org.testng/testng
+//    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+//    compile group: 'io.cucumber', name: 'cucumber-java', version: '5.6.0'
+//    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '5.6.0'
+//    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.3'
+//    testCompile group: 'log4j', name: 'log4j', version: '1.2.17'
+//
+//
+//}
+//
+//test {
+//    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+//}
