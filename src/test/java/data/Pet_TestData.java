@@ -1,6 +1,6 @@
 package data;
 
-import model.Pet.Addpet;
+import model.Pet.AddPet;
 
 public class Pet_TestData {
     /**
@@ -10,8 +10,8 @@ public class Pet_TestData {
      * @param pname
      * @return
      */
-    public static Addpet addpetpayload(int id,int catid, String pname){
-        Addpet addpet = new Addpet();
+    public static AddPet addpetpayload(int id, int catid, String pname){
+        AddPet addpet = new AddPet();
         addpet.setId(id);
         addpet.setpetName(pname);
         addpet.setCategoryid(catid);

@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import data.Pet_TestData;
-import endpoints.pet.petendpoint;
+import endpoints.pet.PetEndpoint;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -32,7 +32,7 @@ public class petsteps extends TestBase {
 
     @When("user call endpoint and post")
     public void user_call_endpoint_and_post() {
-        petendpoint petadd = petendpoint.valueOf("AddPet");
+        PetEndpoint petadd = PetEndpoint.valueOf("AddPet");
         System.out.println(petadd.getResource());
 
         response = reqSpec.when().post(petadd.getResource());
@@ -50,7 +50,7 @@ public class petsteps extends TestBase {
     }
     @When("user call endpoint and get")
     public void user_call_endpoint_and_get() {
-        petendpoint petget = petendpoint.valueOf("GetPet");
+        PetEndpoint petget = PetEndpoint.valueOf("GetPet");
         System.out.println(petget.getResource());
         resSpec= new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
         response = reqSpec.when().get(petget.getResource());

@@ -3,7 +3,7 @@ package model.Pet;
 /**
  * Model file
  */
-public class Addpet {
+public class AddPet {
     private String petType;;
     private String petName;;
 

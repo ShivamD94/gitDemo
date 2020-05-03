@@ -3,13 +3,13 @@ package endpoints.pet;
 /**
  * Enum to mention  pet endpoints
  */
-public enum petendpoint {
+public enum PetEndpoint {
 
     GetPet("/v2/pet/11"),
     AddPet("/v2/pet");
     private String resource;
 
-    petendpoint(String resource)
+    PetEndpoint(String resource)
     {
         this.resource=resource;
     }

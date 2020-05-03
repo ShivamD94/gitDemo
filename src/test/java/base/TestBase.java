@@ -36,7 +36,7 @@ public class TestBase {
 
         if(reqSpec==null) {
             PropertyConfigurator.configure(LOG4J);
-            PrintStream apilogs = new PrintStream(new FileOutputStream("src/test/resources/logs/restapirequest_response.txt"));
+            PrintStream apilogs = new PrintStream(new FileOutputStream("src/test/resources/logs/restapirequest_response.log"));
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
