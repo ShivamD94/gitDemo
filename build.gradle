@@ -15,7 +15,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:$serenitycore")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.81")
     }
 }
 
@@ -31,12 +31,12 @@ configurations.all {
     }
 }
 dependencies {
-    testCompile('net.serenity-bdd:serenity-core:$serenitycore') {
+    testCompile('net.serenity-bdd:serenity-core:2.0.81') {
         exclude group: "io.cucumber", module: "cucumber-core"
     }
     testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
     testCompile 'net.serenity-bdd:serenity-cucumber4:1.0.21'
-    testCompile "io.cucumber:cucumber-java: $cucumber"
+    testCompile "io.cucumber:cucumber-java: 4.2.0"
     testCompile 'io.cucumber:cucumber-junit:4.2.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.5.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'

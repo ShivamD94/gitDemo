@@ -4,3 +4,4 @@
 /reports
 /out
 /target
+/src/test/resources/logs/*.log

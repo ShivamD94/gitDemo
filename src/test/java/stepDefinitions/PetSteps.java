@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
  * Step file to test add and get pet
  */
 
-public class petsteps extends TestBase {
+public class PetSteps extends TestBase {
 
     Response response;
     @Steps
