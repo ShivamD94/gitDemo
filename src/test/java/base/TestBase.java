@@ -27,6 +27,7 @@ public class TestBase {
     public static RequestSpecification reqSpec;
     public static Logger log = Logger.getLogger("devpinoyLogger");
     public static ResponseSpecification resSpec;
+    public static PrintStream apilogs = null;
     /**
      *
      * @return
@@ -36,7 +37,8 @@ public class TestBase {
 
         if(reqSpec==null) {
             PropertyConfigurator.configure(LOG4J);
-            PrintStream apilogs = new PrintStream(new FileOutputStream("src/test/resources/logs/restapirequest_response.log"));
+
+            apilogs = new PrintStream(new FileOutputStream("src/test/resources/logs/restapirequest_response.log"));
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
@@ -44,7 +46,16 @@ public class TestBase {
             log.info("API Request Specification created");
             return reqSpec;
         }
-        return reqSpec;
+else
+        {
+            reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
+                    .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
+                    .removeQueryParam("status")
+                    .setContentType(ContentType.JSON).build();
+            log.info("API Re-Request Specification created");
+            return reqSpec;
+        }
+
     }
 
     /**
