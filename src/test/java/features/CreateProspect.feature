@@ -4,7 +4,7 @@ Feature: Create new prospect
   @FDP-176 @Positive
   Scenario Outline: Create a prospect in platform for different TYPE and COUNTRY values
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
@@ -14,7 +14,7 @@ Feature: Create new prospect
       | email     | <email>     |
     Then verify the status code as <status_code>
     And User fetches ProspectID and timestamp values
-    Given User has the valid prospect endpoint "GetProspectbyID"
+    Given User has the valid endpoint "GetProspectbyID"
     When User hit the GET prospect request
     Then verify the status code as <status_code>
 
@@ -29,7 +29,7 @@ Feature: Create new prospect
   @FDP-176 @Negative
   Scenario Outline: Create a prospect in platform for different invalid data
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
@@ -53,7 +53,7 @@ Feature: Create new prospect
   @FDP-176 @Negative
   Scenario: Create a prospect in platform with existing emailID
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | INDIVIDUAL  |

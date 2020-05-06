@@ -1,0 +1,51 @@
+package stepDefinitions;
+
+import Utility.PropertyHolder;
+import base.TestBase;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
+import data.Pet_TestData;
+import endpoints.pet.PetEndpoint;
+import endpoints.prospect.prospectEndPoint;
+import io.cucumber.datatable.DataTable;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import model.Response.Pet.GetPetBreed.PetBreed;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
+public class createPet extends TestBase {
+    Response response;
+    Pet_TestData data=new Pet_TestData();
+
+    @When("^User hit the GET petBreed request$")
+    public void user_hit_the_get_petbreed_request() throws IOException {
+        reqSpec = given().spec(requestSpesification());
+        response = reqSpec.when().get(PropertyHolder.getProperty("URI"));
+        resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+    }
+
+    @And("^User fetch the BreedType and BreedID of the pet$")
+    public void user_fetch_the_breedtype_and_breedid_of_the_pet(){
+        PetBreed breed=response.getBody().as(PetBreed.class);
+        String BreedType=breed.getLabel();
+        String BreedID=breed.getBreeds().get(0).getValue();
+        PropertyHolder.setProperty("BreedType",BreedType);
+        PropertyHolder.setProperty("BreedID",BreedID);
+    }
+
+    @When("^User hit the POST petProspect request$")
+    public void user_hit_the_post_petprospect_request(DataTable table) throws IOException {
+        Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
+        reqSpec = given().spec(requestSpesification()).body(data.addPetProspectpayload(testData.get("name"),testData.get("type"),
+        PropertyHolder.getProperty("BreedID"),testData.get("DOB"),PropertyHolder.getProperty("ProspectID")));
+        response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
+        resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+    }
+}

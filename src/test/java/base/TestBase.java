@@ -1,6 +1,7 @@
 package base;
 
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -56,6 +57,16 @@ else
             return reqSpec;
         }
 
+    }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     */
+    public ResponseSpecification responseSpecification() throws IOException {
+    resSpec=new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+    return resSpec;
     }
 
     /**
