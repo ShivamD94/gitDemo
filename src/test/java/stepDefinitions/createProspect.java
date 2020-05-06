@@ -17,7 +17,8 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class createProspect extends TestBase {
-    Response response;
+
+/*    Response response;
     String URI;
     Prospect_TestData data=new Prospect_TestData();
 //    @Steps
@@ -35,7 +36,8 @@ public class createProspect extends TestBase {
                     .body(data.addprospectpayload(testData.get("type"),testData.get("country"),testData.get("postalCode"),testData.get("state")));
             response = reqSpec.when().post(URI);
             resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-    }
+    }*/
+
 
 //    @Then("^verify the status code as \"([^\"]*)\"$")
 //    public void verify_the_status_code_as_something(int code){

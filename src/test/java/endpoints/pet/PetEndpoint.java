@@ -6,7 +6,9 @@ package endpoints.pet;
 public enum PetEndpoint {
 
     GetPet("/v2/pet/11"),
-    AddPet("/v2/pet");
+    AddPet("/v2/pet"),
+    AddPetInPlatform("/v2/pets");
+
     private String resource;
 
     PetEndpoint(String resource)
