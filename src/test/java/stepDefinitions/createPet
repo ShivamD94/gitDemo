@@ -12,10 +12,14 @@ import io.cucumber.datatable.DataTable;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
 import model.Response.Pet.GetPetBreed.PetBreed;
+import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -33,19 +37,68 @@ public class createPet extends TestBase {
 
     @And("^User fetch the BreedType and BreedID of the pet$")
     public void user_fetch_the_breedtype_and_breedid_of_the_pet(){
-        PetBreed breed=response.getBody().as(PetBreed.class);
-        String BreedType=breed.getLabel();
-        String BreedID=breed.getBreeds().get(0).getValue();
-        PropertyHolder.setProperty("BreedType",BreedType);
-        PropertyHolder.setProperty("BreedID",BreedID);
+//        int i;
+//        String BreedType;
+//        List<String> BreedID=new ArrayList<>();
+//        PetBreed breed=response.getBody().as(PetBreed.class);
+//        BreedType=breed.getLabel();
+//        for(i=0;i<breed.getBreeds().size();i++){
+//            BreedID.add(breed.getBreeds().get(i).getValue());
+//            PropertyHolder.setProperty("BreedID["+i+"]",BreedID.get(i));
+//        }
+//        PropertyHolder.setProperty("BreedType",BreedType);
+        String breedID1= getJsonPath(response,"[0].breeds[0].value");
+        String breedID2= getJsonPath(response,"[1].breeds[0].value");
+        PropertyHolder.setProperty("breedID1",breedID1);
+        PropertyHolder.setProperty("breedID2",breedID2);
     }
 
     @When("^User hit the POST petProspect request$")
     public void user_hit_the_post_petprospect_request(DataTable table) throws IOException {
+        String breedID=null;
+        String prospectID=null;
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
+
+        //scenario coverage for breedID - valid/null/invalid
+        if(testData.get("breed").equalsIgnoreCase("valid")){
+            if(testData.get("type").equalsIgnoreCase("dog")){
+                breedID=PropertyHolder.getProperty("breedID1");
+            }
+            else if(testData.get("type").equalsIgnoreCase("cat")){
+                breedID=PropertyHolder.getProperty("breedID2");
+            }
+            else{log.info("Invalid Pet type provided!!!");}
+        }
+        else if(testData.get("breed").equalsIgnoreCase("null")){
+            breedID=null;
+        }
+        else if(testData.get("breed").equalsIgnoreCase("invalid")){
+            breedID="123";
+        }
+
+        //scenario coverage for prospectID - valid/null/invalid
+        if(testData.get("prospect").equalsIgnoreCase("valid")){
+            prospectID=PropertyHolder.getProperty("ProspectID");
+        }
+        else if(testData.get("prospect").equalsIgnoreCase("invalid")){
+            prospectID="12";
+        }
+        else if(testData.get("prospect").equalsIgnoreCase("null")){
+            prospectID.equals(null);
+        }
+
         reqSpec = given().spec(requestSpesification()).body(data.addPetProspectpayload(testData.get("name"),testData.get("type"),
-        PropertyHolder.getProperty("BreedID"),testData.get("DOB"),PropertyHolder.getProperty("ProspectID")));
+        breedID,testData.get("DOB"),prospectID));
         response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
-        resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+        resSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
+    }
+
+    @And("^User fetches PetID and timestamp values$")
+    public void user_fetches_petid_and_timestamp_values(){
+        CreatePetProspectRes res=response.getBody().as(CreatePetProspectRes.class);
+        String PetID=res.getPayload().getResponses().get(0).getId();
+        String timeStamp=res.getPayload().getResponses().get(0).getCreatedTimestamp();
+        PropertyHolder.setProperty("PetID",PetID);
+        PropertyHolder.setProperty("PetTimeStamp",timeStamp);
     }
 }
