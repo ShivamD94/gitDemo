@@ -2,7 +2,7 @@
 package model.Request.Pet.createPetProspect;
 
 
-import org.yecht.Data;
+
 
 public class Weight {
 

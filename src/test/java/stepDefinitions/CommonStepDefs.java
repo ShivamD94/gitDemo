@@ -20,6 +20,7 @@ public class CommonStepDefs {
         else if(endpoint.contains("pet")){
             URI= PetEndpoint.valueOf(endpoint).getResource();
         }
+
         PropertyHolder.setProperty("URI",URI);
     }
 
