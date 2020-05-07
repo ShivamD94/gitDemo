@@ -1,6 +1,6 @@
 package data;
 
-import model.Pet.AddPet;
+import model.Request.Pet.AddPet;
 
 public class Pet_TestData {
     /**

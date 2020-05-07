@@ -70,3 +70,36 @@ Feature: Create new prospect
       | state     | PH          |
       | email     |testemail@pet.com|
     Then verify the status code as "400"
+
+
+  @FDP-178
+  Scenario Outline: Create a prospect in platform for different TYPE and COUNTRY values
+
+    Given User has the valid prospect endpoint "AddProspect"
+    When User hit the POST prospect request
+      | Key       | Value       |
+      | type      | <type>      |
+      | country   | <country>   |
+      | postalCode| <postalCode>|
+      | state     | <state>     |
+      | email     | <email>     |
+    Then User fetches ProspectID and timestamp values
+
+    Given User has the existing prospect
+    When User hit the "GetProspectbyID" prospect
+    Then Verify the detail from payload response
+      | Key       | Value       |
+      | type      | <type>      |
+      | country   | <country>   |
+      | postalCode| <postalCode>|
+      | state     | <state>     |
+      | email     | <email>     |
+
+    Examples:
+      |type       |country|postalCode|state|email   |status_code|
+      |INDIVIDUAL |USA    |95005     |PH   |random  |201        |
+      |INDIVIDUAL |CANADA |T9S       |AB   |random  |201        |
+      |CORPORATE  |USA    |95005     |PH   |random  |201        |
+      |CORPORATE  |CANADA |T9S       |AB   |random  |201        |
+
+
