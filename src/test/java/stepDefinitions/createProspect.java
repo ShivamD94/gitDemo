@@ -32,9 +32,7 @@ public class createProspect extends TestBase {
            reqSpec = given().spec(requestSpesification())
                     .body(data.addprospectpayload(testData.get("type"),testData.get("country"),
                             testData.get("postalCode"),testData.get("state"),testData.get("email")));
-            response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
-            resSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
-
+           response= reqSpec.when().post(PropertyHolder.getProperty("URI"));
     }
 
     @And("^User fetches ProspectID and timestamp values$")
@@ -50,6 +48,5 @@ public class createProspect extends TestBase {
     public void user_hit_the_get_prospect_request() throws IOException {
         reqSpec = given().spec(requestSpesification()).pathParam("prospectId",PropertyHolder.getProperty("ProspectID"));
         response = reqSpec.when().get(PropertyHolder.getProperty("URI"));
-        resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
     }
 }

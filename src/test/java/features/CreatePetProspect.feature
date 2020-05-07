@@ -15,7 +15,7 @@ Feature: Create new pet prospect
     Then verify the status code as <status_code>
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "GetPetType"
-    When User hit the GET petBreed request
+    When User hit the GET petBreed request for "{petType}"
     Then verify the status code as <status_code>
     And User fetch the BreedType and BreedID of the pet
 
@@ -47,7 +47,7 @@ Feature: Create new pet prospect
     Then verify the status code as <status_code>
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "GetPetType"
-    When User hit the GET petBreed request
+    When User hit the GET petBreed request for "{petType}"
     Then verify the status code as <status_code>
     And User fetch the BreedType and BreedID of the pet
 

@@ -1,8 +1,5 @@
 
-package model.Request.Pet.createPetProspect;
-
-
-import org.yecht.Data;
+package model.Request.Pet.CreatePetProspect;
 
 public class Weight {
 

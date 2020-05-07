@@ -33,7 +33,6 @@ public class createPet extends TestBase {
         String URI=PropertyHolder.getProperty("URI").concat(type);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
-        resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
     }
 
     @And("^User fetch the BreedType and BreedID of the pet$")
@@ -91,7 +90,6 @@ public class createPet extends TestBase {
         reqSpec = given().spec(requestSpesification()).body(data.addPetProspectpayload(testData.get("name"),testData.get("type"),
         breedID,testData.get("DOB"),prospectID));
         response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
-        resSpec = new ResponseSpecBuilder().expectStatusCode(200).build();
     }
 
     @And("^User fetches PetID and timestamp values$")

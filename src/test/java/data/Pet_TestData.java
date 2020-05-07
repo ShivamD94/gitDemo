@@ -1,15 +1,10 @@
 package data;
 
-import Utility.UtilityMethods;
 import model.Request.Pet.AddPet;
-import model.Request.Pet.createPetProspect.CreatePetProspect;
-import model.Request.Pet.createPetProspect.Link;
-import model.Request.Pet.createPetProspect.Prospect;
-import model.Request.Pet.createPetProspect.Weight;
-import model.Request.Prospect.CreateProspect.AddProspect;
-import model.Request.Prospect.CreateProspect.AdditionalAttribute;
-import model.Request.Prospect.CreateProspect.Contact;
-import model.Request.Prospect.CreateProspect.Detail;
+import model.Request.Pet.CreatePetProspect.CreatePetProspect;
+import model.Request.Pet.CreatePetProspect.Link;
+import model.Request.Pet.CreatePetProspect.Prospect;
+import model.Request.Pet.CreatePetProspect.Weight;
 
 import java.util.ArrayList;
 import java.util.List;

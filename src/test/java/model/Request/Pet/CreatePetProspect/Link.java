@@ -1,5 +1,5 @@
 
-package model.Request.Pet.createPetProspect;
+package model.Request.Pet.CreatePetProspect;
 
 
 public class Link {
