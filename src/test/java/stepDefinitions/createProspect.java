@@ -2,14 +2,10 @@ package stepDefinitions;
 
 import base.TestBase;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import data.Prospect_TestData;
-import endpoints.prospect.prospectEndPoint;
 import io.cucumber.datatable.DataTable;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 

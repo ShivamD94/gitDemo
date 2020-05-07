@@ -3,23 +3,14 @@ package stepDefinitions;
 import Utility.PropertyHolder;
 import base.TestBase;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import data.Pet_TestData;
-import endpoints.pet.PetEndpoint;
-import endpoints.prospect.prospectEndPoint;
 import io.cucumber.datatable.DataTable;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
-import model.Response.Pet.GetPetBreed.PetBreed;
-import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
