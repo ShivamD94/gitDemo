@@ -1,6 +1,6 @@
 package model.Response.Prospect.GetProspectResponse;
 
-import model.Response.Prospect.CreateProspectResponse.Payload;
+
 
 public class getProspectResponsePayload {
 

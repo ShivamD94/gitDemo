@@ -4,7 +4,7 @@ Feature: Create new prospect
   @FDP-176 @Positive
   Scenario Outline: Create a prospect in platform for different TYPE and COUNTRY values
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
@@ -14,7 +14,7 @@ Feature: Create new prospect
       | email     | <email>     |
     Then verify the status code as <status_code>
     And User fetches ProspectID and timestamp values
-    Given User has the valid prospect endpoint "GetProspectbyID"
+    Given User has the valid endpoint "GetProspectbyID"
     When User hit the GET prospect request
     Then verify the status code as <status_code>
 
@@ -29,7 +29,7 @@ Feature: Create new prospect
   @FDP-176 @Negative
   Scenario Outline: Create a prospect in platform for different invalid data
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
@@ -53,7 +53,7 @@ Feature: Create new prospect
   @FDP-176 @Negative
   Scenario: Create a prospect in platform with existing emailID
 
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | INDIVIDUAL  |
@@ -71,11 +71,10 @@ Feature: Create new prospect
       | email     |testemail@pet.com|
     Then verify the status code as "400"
 
+  @FDP-178 @Positive
+  Scenario Outline: Get prospect by PROSPECT ID
 
-  @FDP-178
-  Scenario Outline: Create a prospect in platform for different TYPE and COUNTRY values
-
-    Given User has the valid prospect endpoint "AddProspect"
+    Given User has the valid endpoint "AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
@@ -83,23 +82,36 @@ Feature: Create new prospect
       | postalCode| <postalCode>|
       | state     | <state>     |
       | email     | <email>     |
-    Then User fetches ProspectID and timestamp values
+    Then verify the status code as <status_code>
+    And User fetches ProspectID and timestamp values
+    Given User has the valid endpoint "GetProspectbyID"
+    When User hit the GET prospect request
+    Then verify the status code as <status_code>
+    And User verify the get prospect data
 
-    Given User has the existing prospect
-    When User hit the "GetProspectbyID" prospect
-    Then Verify the detail from payload response
+    Examples:
+      |type       |country|postalCode|state|email   |status_code|
+      |INDIVIDUAL |USA    |95005     |PH   |random  |201        |
+
+  @FDP-178 @Negative
+  Scenario Outline: Get prospect by PROSPECT ID
+
+    Given User has the valid endpoint "AddProspect"
+    When User hit the POST prospect request
       | Key       | Value       |
       | type      | <type>      |
       | country   | <country>   |
       | postalCode| <postalCode>|
       | state     | <state>     |
       | email     | <email>     |
+    Then verify the status code as <status_code>
+    And User fetches ProspectID and timestamp values
+    Given User has the valid endpoint "GetProspectbyID"
+    When User hit the GET prospect request with invalid ID
+    Then verify the status code as "400"
+
 
     Examples:
       |type       |country|postalCode|state|email   |status_code|
       |INDIVIDUAL |USA    |95005     |PH   |random  |201        |
-      |INDIVIDUAL |CANADA |T9S       |AB   |random  |201        |
-      |CORPORATE  |USA    |95005     |PH   |random  |201        |
-      |CORPORATE  |CANADA |T9S       |AB   |random  |201        |
-
 
