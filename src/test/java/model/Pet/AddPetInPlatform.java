@@ -16,14 +16,14 @@ public class AddPetInPlatform {
    private List<Tags> tags = null;
    private List<Vets> vets =null;
 
-   public AddPetInPlatform(String type, String gender, String identifer, String breedId, boolean isCalculated, String dateOfBirth,
+   public AddPetInPlatform(String type, String identifer, String breedId, boolean isCalculated, String dateOfBirth, String gender,
                            Source source, List<Ownerships> ownerships, List<Weights> weights, List<Tags> tags, List<Vets> vets){
        this.petType=type;
-       this.gender=gender;
        this.identifer=identifer;
        this.breedId=breedId;
        this.isCalculated=isCalculated;
        this.dateOfBirth=dateOfBirth;
+       this.gender=gender;
        this.source=source;
        this.ownerships=ownerships;
        this.weights=weights;

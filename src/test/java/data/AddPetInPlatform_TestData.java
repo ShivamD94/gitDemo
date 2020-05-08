@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AddPetInPlatform_TestData {
 
-    public AddPetInPlatform addpetpayload(String type, String gender, String identifer, String breedId, String dateOfBirth){
+    public AddPetInPlatform addpetpayload(String type, String identifer, String breedId, String dateOfBirth, String gender){
 
         boolean isCalculated=false;
         Source source=new Source("BAU");
@@ -23,7 +23,7 @@ public class AddPetInPlatform_TestData {
         vets.add(new Vets(UtilityMethods.getRandomString(),"123xxxxx", 0));
         ownerships.add(new Ownerships(UtilityMethods.getRandomString(),"2030-04-01","INDIVIDUAL",UtilityMethods.getRandomString()));
 
-        AddPetInPlatform addPetInPlatform = new AddPetInPlatform(type, gender, identifer, breedId, isCalculated, dateOfBirth, source, ownerships, weights, tags, vets);
+        AddPetInPlatform addPetInPlatform = new AddPetInPlatform(type, identifer, breedId, isCalculated, dateOfBirth, gender, source, ownerships, weights, tags, vets);
         return addPetInPlatform;
 
     }
