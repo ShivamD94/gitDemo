@@ -1,5 +1,5 @@
 
-package model.Prospect;
+package model.Request.Prospect.CreateProspect;
 
 import java.util.List;
 
