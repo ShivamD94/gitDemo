@@ -12,7 +12,9 @@ Feature: Create new pet
       |breedId    |<breedId>    |
       |dateOfBirth|<dateOfBirth>|
       | gender    | <gender>    |
-   Then verify the status code as <status_code>
+
+    And User fetches petIdentiferID, petName values
+    Then verify the status code as <status_code>
   Examples:
   |petType |identifer | breedId | dateOfBirth | gender | status_code |
   |Dog     |101       |    1    | 2030-04-01  |  Male  |    201      |
@@ -31,7 +33,9 @@ Feature: Create new pet
         |breedId    |<breedId>    |
         |dateOfBirth|<dateOfBirth>|
         | gender    | <gender>    |
+
       Then verify the status code as <status_code>
+
     Examples:
     |petType |identifer | breedId | dateOfBirth | gender | status_code |
     |        |101       |    1    | 2030-04-01  |  Male  | 400         |
