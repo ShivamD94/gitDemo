@@ -44,9 +44,16 @@ public class createProspect extends TestBase {
         setProperty("TimeStamp", timeStamp);
     }
 
-    @When("^User hit the GET prospect request$")
-    public void user_hit_the_get_prospect_request() throws IOException {
-        reqSpec = given().spec(requestSpesification()).pathParam("prospectId", getProperty("ProspectID"));
+    @When("^User hit the GET prospect request \"([^\"]*)\"$")
+    public void user_hit_the_get_prospect_request_something(String prospectID) throws IOException {
+        String ProspectID=null;
+        if (prospectID.equalsIgnoreCase("valid")){
+            ProspectID=getProperty("ProspectID");
+        }
+        else if (prospectID.equalsIgnoreCase("invalid")){
+            ProspectID="PROS123";
+        }
+        reqSpec = given().spec(requestSpesification()).pathParam("prospectId", ProspectID);
         response = reqSpec.when().get(getProperty("URI"));
     }
 
@@ -58,15 +65,5 @@ public class createProspect extends TestBase {
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getPostalCode(),getProperty("PostalCode"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getState(),getProperty("State"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail(),getProperty("Email"));
-        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0), getAllProperty());
-        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getContacts(), getProperty("Contact"));
     }
-    @When("User hit the GET prospect request with invalid ID")
-    public void user_hit_the_GET_prospect_request_with_invalid_ID() throws IOException {
-        String ID = getProperty("ProspectID");
-        reqSpec = given().spec(requestSpesification()).pathParam("prospectId",ID + "123" );
-        response = reqSpec.when().get(getProperty("URI"));
-    }
-
-
 }
