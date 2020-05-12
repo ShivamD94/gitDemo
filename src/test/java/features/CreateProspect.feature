@@ -13,6 +13,7 @@ Feature: Create new prospect
       | state     | <state>     |
       | email     | <email>     |
     Then verify the status code as <status_code>
+    And User validates the jsonSchema with "PostProspectResponse"
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "GetProspectbyID"
     When User hit the GET prospect request
