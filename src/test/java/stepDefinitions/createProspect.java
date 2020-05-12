@@ -2,9 +2,12 @@ package stepDefinitions;
 
 import base.TestBase;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 
@@ -14,11 +17,11 @@ import java.util.Map;
 import Utility.PropertyHolder;
 import net.thucydides.core.annotations.Steps;
 
-import static data.Prospect_TestData.addprospectpayload;
 import static io.restassured.RestAssured.given;
+import static data.Prospect_TestData.*;
 
 public class createProspect extends TestBase {
-    //@Steps
+    @Steps
     Response response;
 
     @When("^User hit the POST prospect request$")
@@ -27,7 +30,8 @@ public class createProspect extends TestBase {
            reqSpec = given().spec(requestSpesification())
                     .body(addprospectpayload(testData.get("type"),testData.get("country"),
                             testData.get("postalCode"),testData.get("state"),testData.get("email")));
-           response= reqSpec.when().post(PropertyHolder.getProperty("URI"));
+            response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
+
     }
 
     @And("^User fetches ProspectID and timestamp values$")
