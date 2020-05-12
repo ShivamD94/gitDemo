@@ -1,4 +1,4 @@
-package model.Pet;
+package model.Request.Pet.CreatePetInPlatformRequest;
 
 public class Tags {
     private String tag;

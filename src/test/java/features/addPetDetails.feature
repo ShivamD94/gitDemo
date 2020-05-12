@@ -4,7 +4,7 @@ Feature: Create new pet
   @FDP-463 @Positive
   Scenario Outline: Create a pet in platform
 
-    Given User has the valid pet endpoint "AddPetInPlatform"
+    Given User has the valid endpoint "AddPetInPlatform"
     When User hit the POST request
       | Key       | Value       |
       | petType   | <petType>   |
@@ -15,6 +15,8 @@ Feature: Create new pet
 
     And User fetches petIdentiferID, petName values
     Then verify the status code as <status_code>
+    And User validates the jsonSchema with "PostPetResponse"
+
   Examples:
   |petType |identifer | breedId | dateOfBirth | gender | status_code |
   |Dog     |101       |    1    | 2030-04-01  |  Male  |    201      |
@@ -25,7 +27,7 @@ Feature: Create new pet
    @FDP-463 @Negative
     Scenario Outline: Create a pet in platform with invalid data
 
-      Given User has the valid pet endpoint "AddPetInPlatform"
+      Given User has the valid endpoint "AddPetInPlatform"
       When User hit the POST request
         | Key       | Value       |
         | petType   | <petType>   |
