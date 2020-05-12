@@ -25,7 +25,7 @@ public class createPet extends TestBase {
 
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
-        String URI=PropertyHolder.getProperty("URI").concat(type);
+        String URI=PropertyHolder.getProperty("URI").concat("/"+type);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
     }

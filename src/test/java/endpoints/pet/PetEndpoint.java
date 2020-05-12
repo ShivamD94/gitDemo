@@ -7,7 +7,7 @@ public enum PetEndpoint {
 
     GetPet("/v2/pet/11"),
     AddPet("/v2/pet"),
-    GetPetAttribute("/v1/pets/attributes/"),
+    GetPetAttribute("/v1/pets/attributes"),
     PostPetProspect("v1/prospect-pets");
     private String resource;
 

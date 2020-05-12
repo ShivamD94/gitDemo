@@ -16,7 +16,7 @@ Feature: Create new prospect
     And User validates the jsonSchema with "PostProspectResponse"
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "GetProspectbyID"
-    When User hit the GET prospect request
+    When User hit the GET prospect request "valid"
     Then verify the status code as <status_code>
 
   Examples:

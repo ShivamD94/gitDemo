@@ -5,10 +5,14 @@ import base.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import endpoints.prospect.prospectEndPoint;
 import endpoints.pet.PetEndpoint;
 import io.restassured.response.Response;
 import io.restassured.module.jsv.JsonSchemaValidator;
+
+import static Utility.PropertyHolder.getProperty;
+import static io.restassured.RestAssured.given;
 
 
 public class CommonStepDefs extends TestBase {
@@ -24,6 +28,12 @@ public class CommonStepDefs extends TestBase {
             URI= PetEndpoint.valueOf(endpoint).getResource();
         }
         PropertyHolder.setProperty("URI",URI);
+    }
+
+    @When("^User hit the GET request$")
+    public void user_hit_the_get_request() throws Throwable {
+        reqSpec= given().spec(requestSpesification());
+        response= reqSpec.when().get(getProperty("URI"));
     }
 
     @Then("^verify the status code as (.+)$")
