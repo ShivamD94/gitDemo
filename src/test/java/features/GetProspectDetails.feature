@@ -17,6 +17,7 @@
     Given User has the valid endpoint "GetProspectbyID"
     When User hit the GET prospect request
     Then verify the status code as <status_code>
+    And User validates the jsonSchema with "GetProspectByProspectIDResponse"
     And User verify the get prospect data
 
     Examples:
