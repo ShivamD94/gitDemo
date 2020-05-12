@@ -1,0 +1,16 @@
+{
+    "payload": {
+        "responses": [
+            {
+                "_id": "PET12344",
+                "_createdTimestamp": "2020-01-01'T'10:12:30XXX",
+                "links": [
+                    {
+                        "name": "self",
+                        "href": "/v1/prospectPets/PROS12344"
+                    }
+                ]
+            }
+        ]
+    }
+}
