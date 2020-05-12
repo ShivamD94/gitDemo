@@ -4,20 +4,24 @@ import Utility.PropertyHolder;
 import base.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
-import data.Pet_TestData;
 import io.cucumber.datatable.DataTable;
 import io.restassured.response.Response;
+
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
+import org.assertj.core.util.Lists;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static data.Pet_TestData.addPetProspectpayload;
 import static io.restassured.RestAssured.given;
 
 public class createPet extends TestBase {
     Response response;
-    Pet_TestData data=new Pet_TestData();
 
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
@@ -75,10 +79,10 @@ public class createPet extends TestBase {
             prospectID="12";
         }
         else if(testData.get("prospect").equalsIgnoreCase("null")){
-            prospectID.equals(null);
+            prospectID=null;
         }
 
-        reqSpec = given().spec(requestSpesification()).body(data.addPetProspectpayload(testData.get("name"),testData.get("type"),
+        reqSpec = given().spec(requestSpesification()).body(addPetProspectpayload(testData.get("name"),testData.get("type"),
         breedID,testData.get("DOB"),prospectID));
         response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
     }

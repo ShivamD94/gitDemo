@@ -1,5 +1,6 @@
 package Utility;
 
+import java.io.File;
 import java.util.Random;
 
 public class UtilityMethods {
@@ -21,4 +22,24 @@ public class UtilityMethods {
 
         return userName.toString();
     }
+
+    /**
+     * @author Nikhita Garg
+     * @description Method to read JSON schema file
+     * @return JSON schema
+     */
+
+    public static String readResponseJsonSchema(String jsonSchema) {
+        try {
+            String path="src/test/java/model/JsonSchemas/";
+            File file=new File(path+jsonSchema+".json");
+            String jsonString = file.toString();
+            return jsonString;
+        } catch (Exception e) {
+
+            System.out.println("Error while reading jsonSchema file : " + e);
+            return null;
+        }
+    }
+
 }

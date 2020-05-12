@@ -26,6 +26,7 @@ Feature: Create new pet prospect
       | country   | <petType>|
       | state     | <DOB>    |
     Then verify the status code as <status_code>
+    And User validates the jsonSchema with "PostPetProspectResponse"
     And User fetches PetID and timestamp values
 
     Examples:
