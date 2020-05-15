@@ -53,7 +53,7 @@ else
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
                     .removeQueryParam("status")
-                    .setContentType(ContentType.JSON).build();
+                    .setContentType(ContentType.JSON).addHeader("X-CorrelationId","45677889").build();
             log.info("API Re-Request Specification created");
             return reqSpec;
         }

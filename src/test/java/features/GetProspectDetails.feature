@@ -16,7 +16,7 @@
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "Prospect-GetProspectbyID"
     When User hit the GET prospect request "valid"
-    Then verify the status code as <status_code>
+    Then verify the status code as 200
     And User validates the jsonSchema with "GetProspectByProspectIDResponse"
     And User verify the get prospect data
 
@@ -39,7 +39,7 @@
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "Prospect-GetProspectbyID"
     When User hit the GET prospect request "invalid"
-    Then verify the status code as "400"
+    Then verify the status code as 400
 
 
     Examples:

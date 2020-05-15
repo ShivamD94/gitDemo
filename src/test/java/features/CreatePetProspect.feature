@@ -12,11 +12,11 @@ Feature: Create new pet prospect
       | postalCode| <postalCode>|
       | state     | <state>     |
       | email     | <email>     |
-    Then verify the status code as <status_code>
+    Then verify the status code as 201
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "Pet-GetPetType"
     When User hit the GET petBreed request for "{petType}"
-    Then verify the status code as <status_code>
+    Then verify the status code as 200
     And User fetch the BreedType and BreedID of the pet
 
     Given User has the valid endpoint "PetProspect-PostPetProspect"
@@ -47,11 +47,11 @@ Feature: Create new pet prospect
       | postalCode| <postalCode>|
       | state     | <state>     |
       | email     | <email>     |
-    Then verify the status code as <status_code>
+    Then verify the status code as 201
     And User fetches ProspectID and timestamp values
     Given User has the valid endpoint "Pet-GetPetType"
     When User hit the GET petBreed request for "{petType}"
-    Then verify the status code as <status_code>
+    Then verify the status code as 200
     And User fetch the BreedType and BreedID of the pet
 
     Given User has the valid endpoint "PetProspect-PostPetProspect"

@@ -5,7 +5,7 @@
 
         Given User has the valid endpoint "Pet-GetPetAttribute"
         When User hit the GET request
-        Then verify the status code as "201"
+        Then verify the status code as 201
         And User validates the jsonSchema with "GetPetAttribute"
 
 
@@ -14,4 +14,4 @@
 
         Given User has the valid endpoint "Pet-GetPetAttribute"
         When User hit the GET request
-        Then verify the status code as "401"
+        Then verify the status code as 401

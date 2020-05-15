@@ -7,8 +7,8 @@ public enum PetEndpoint {
 
     GetPet("/v2/pet/11"),
     AddPet("/v2/pet"),
-    AddPetInPlatform("/v2/pets"),
-    GetPetAttribute("/v1/pets/attributes");
+    AddPetInPlatform("fdp-pet-service/v1/pets"),
+    GetPetAttribute("fdp-pet-service/v1/pets/attributes");
     private String resource;
 
     PetEndpoint(String resource)

@@ -52,7 +52,7 @@ public class Pet_TestData {
         return createPetPros;
     }
 
-    public static AddPetInPlatform addpetpayload(String type, String identifer, String breedId, String dateOfBirth, String gender) {
+    public static List<AddPetInPlatform> addpetpayload(String type, String identifer, String breedId, String dateOfBirth, String gender) {
 
         boolean isCalculated = false;
         Source source = new Source("BAU");
@@ -68,7 +68,7 @@ public class Pet_TestData {
         vets.add(new Vets(UtilityMethods.getRandomString(), "123xxxxx", 0));
         ownerships.add(new Ownerships(PropertyHolder.getProperty("petname"), "2030-04-01", "INDIVIDUAL", UtilityMethods.getRandomString()));
 
-        AddPetInPlatform addPetInPlatform = new AddPetInPlatform(type, identifer, breedId, isCalculated, dateOfBirth, gender, source, ownerships, weights, tags, vets);
+        List<AddPetInPlatform> addPetInPlatform = Lists.newArrayList(new AddPetInPlatform(type, identifer, breedId, isCalculated, dateOfBirth, gender, source, ownerships, weights, tags, vets));
         return addPetInPlatform;
     }
 }

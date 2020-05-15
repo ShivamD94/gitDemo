@@ -4,10 +4,18 @@ package model.Response.Pet.GetPetBreed;
 import java.util.List;
 
 public class PetBreed {
-
+    private String correlationId;
     private String value;
     private String label;
     private List<Breed> breeds = null;
+
+    public String getCorrelationId() {
+        return correlationId;
+    }
+
+    public void setCorrelationId(String correlationId) {
+        this.correlationId = correlationId;
+    }
 
     public String getValue() {
         return value;
