@@ -1,27 +1,20 @@
 package stepDefinitions;
 
 import base.TestBase;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-import io.restassured.response.Response;
 import model.Response.Pet.CreatePetInPlatformResponse.AddPetInPlatformRes;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
-import static data.Pet_TestData.*;
 import static Utility.PropertyHolder.*;
+import static data.Pet_TestData.*;
+import static io.restassured.RestAssured.given;
 
 public class AddPet extends TestBase {
-    @Steps
-    Response response;
+//@Step
 
     @When("^User hit the POST request$")
     public void user_hit_the_post_request(DataTable table) throws Throwable {

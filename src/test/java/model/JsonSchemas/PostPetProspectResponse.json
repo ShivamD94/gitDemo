@@ -1,16 +1,61 @@
 {
-    "payload": {
-        "responses": [
-            {
-                "_id": "PET12344",
-                "_createdTimestamp": "2020-01-01'T'10:12:30XXX",
-                "links": [
-                    {
-                        "name": "self",
-                        "href": "/v1/prospectPets/PROS12344"
-                    }
-                ]
-            }
-        ]
-    }
+    "type": "object",
+    "properties": {
+        "correlationId": {
+            "type": "string"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "responses": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_id": {
+                                    "type": "string"
+                                },
+                                "_createdTimestamp": {
+                                    "type": "string"
+                                },
+                                "links": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "href": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name",
+                                                "href"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "createdTimestamp",
+                                "links"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "responses"
+            ]
+        }
+    },
+    "required": [
+        "correlationId",
+        "payload"
+    ]
 }

@@ -25,19 +25,18 @@ public class UtilityMethods {
 
     /**
      * @author Nikhita Garg
-     * @description Method to read JSON schema file
-     * @return JSON schema
+     * @description Method to read JSON schema file name
+     * @return JSON schema file name
      */
 
-    public static String readResponseJsonSchema(String jsonSchema) {
+    public static File readResponseJsonSchema(String jsonSchema) {
         try {
-            String path="src/test/java/model/JsonSchemas/";
+            String path=System.getProperty("user.dir")+"/src/test/java/model/JsonSchemas/";
             File file=new File(path+jsonSchema+".json");
-            String jsonString = file.toString();
-            return jsonString;
+            return file;
         } catch (Exception e) {
 
-            System.out.println("Error while reading jsonSchema file : " + e);
+            System.out.println("Error while reading jsonSchema file name: " + e);
             return null;
         }
     }

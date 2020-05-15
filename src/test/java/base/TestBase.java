@@ -29,6 +29,7 @@ public class TestBase {
     public static Logger log = Logger.getLogger("devpinoyLogger");
     public static ResponseSpecification resSpec;
     public static PrintStream apilogs = null;
+    public static Response response;
     /**
      *
      * @return
@@ -43,7 +44,7 @@ public class TestBase {
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
-                    .setContentType(ContentType.JSON).build();
+                    .setContentType(ContentType.JSON).addHeader("X-CorrelationId","45677889").build();
             log.info("API Request Specification created");
             return reqSpec;
         }
@@ -99,4 +100,5 @@ else
         JsonPath   js = new JsonPath(resp);
         return js.get(key).toString();
     }
+
 }

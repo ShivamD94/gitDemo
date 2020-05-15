@@ -1,33 +1,28 @@
 package stepDefinitions;
 
-import Utility.PropertyHolder;
 import base.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-import io.restassured.response.Response;
-
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
-import org.assertj.core.util.Lists;
+import net.thucydides.core.annotations.Step;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static data.Pet_TestData.addPetProspectpayload;
+import static data.Pet_TestData.*;
 import static io.restassured.RestAssured.given;
+import static Utility.PropertyHolder.*;
 
-public class createPet extends TestBase {
-    Response response;
-
+public class CreatePet extends TestBase {
+//@Steps
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
-        String URI=PropertyHolder.getProperty("URI").concat("/"+type);
+        String URI=getProperty("URI").concat("/"+type);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
+
     }
 
     @And("^User fetch the BreedType and BreedID of the pet$")
@@ -44,23 +39,23 @@ public class createPet extends TestBase {
 //        PropertyHolder.setProperty("BreedType",BreedType);
         String breedID1= getJsonPath(response,"[0].breeds[0].value");
         String breedID2= getJsonPath(response,"[1].breeds[0].value");
-        PropertyHolder.setProperty("breedID1",breedID1);
-        PropertyHolder.setProperty("breedID2",breedID2);
+        setProperty("breedID1",breedID1);
+        setProperty("breedID2",breedID2);
     }
-
+@Step
     @When("^User hit the POST petProspect request$")
     public void user_hit_the_post_petprospect_request(DataTable table) throws IOException {
-        String breedID=null;
+        String breedID = null;
         String prospectID=null;
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
 
         //scenario coverage for breedID - valid/null/invalid
         if(testData.get("breed").equalsIgnoreCase("valid")){
             if(testData.get("type").equalsIgnoreCase("dog")){
-                breedID=PropertyHolder.getProperty("breedID1");
+                breedID=getProperty("breedID1");
             }
             else if(testData.get("type").equalsIgnoreCase("cat")){
-                breedID=PropertyHolder.getProperty("breedID2");
+                breedID=getProperty("breedID2");
             }
             else{log.info("Invalid Pet type provided!!!");}
         }
@@ -73,7 +68,7 @@ public class createPet extends TestBase {
 
         //scenario coverage for prospectID - valid/null/invalid
         if(testData.get("prospect").equalsIgnoreCase("valid")){
-            prospectID=PropertyHolder.getProperty("ProspectID");
+            prospectID=getProperty("ProspectID");
         }
         else if(testData.get("prospect").equalsIgnoreCase("invalid")){
             prospectID="12";
@@ -84,7 +79,7 @@ public class createPet extends TestBase {
 
         reqSpec = given().spec(requestSpesification()).body(addPetProspectpayload(testData.get("name"),testData.get("type"),
         breedID,testData.get("DOB"),prospectID));
-        response = reqSpec.when().post(PropertyHolder.getProperty("URI"));
+        response = reqSpec.when().post(getProperty("URI"));
     }
 
     @And("^User fetches PetID and timestamp values$")
@@ -92,7 +87,7 @@ public class createPet extends TestBase {
         CreatePetProspectRes res=response.getBody().as(CreatePetProspectRes.class);
         String PetID=res.getPayload().getResponses().get(0).getId();
         String timeStamp=res.getPayload().getResponses().get(0).getCreatedTimestamp();
-        PropertyHolder.setProperty("PetID",PetID);
-        PropertyHolder.setProperty("PetTimeStamp",timeStamp);
+        setProperty("PetID",PetID);
+        setProperty("PetTimeStamp",timeStamp);
     }
 }

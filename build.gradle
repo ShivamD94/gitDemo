@@ -44,10 +44,7 @@ dependencies {
     compile 'org.assertj:assertj-core:3.8.0'
 //    Added more library
     testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.26'
-    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
-    // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
     testCompile group: 'io.rest-assured', name: 'json-schema-validator', version: '3.0.0'
-
 }
 gradle.startParameter.continueOnFailure = true
 test.finalizedBy(aggregate)

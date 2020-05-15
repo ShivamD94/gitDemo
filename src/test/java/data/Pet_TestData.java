@@ -8,6 +8,7 @@ import model.Request.Pet.CreatePetProspect.CreatePetProspect;
 import model.Request.Pet.CreatePetProspect.Link;
 import model.Request.Pet.CreatePetProspect.Prospect;
 import model.Request.Pet.CreatePetProspect.Weight;
+import org.assertj.core.util.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,15 +40,15 @@ public class Pet_TestData {
      * @param prospectID
      * @return
      */
-    public static CreatePetProspect addPetProspectpayload(String name, String type, String breedID, String DOB, String prospectID) {
+    public static List<CreatePetProspect> addPetProspectpayload(String name, String type, String breedID, String DOB, String prospectID) {
         List<Weight> weight = new ArrayList<>();
         List<Link> link = new ArrayList<>();
 
         weight.add(new Weight(DOB, "KG", 20.6));
         link.add(new Link("self", "/v1/prospects/" + prospectID));
         Prospect prospect = new Prospect(prospectID, "INDIVIDUAL", link);
-        CreatePetProspect createPetPros = new CreatePetProspect(name, type, breedID, DOB, true, weight, prospect);
 
+        List<CreatePetProspect> createPetPros= Lists.newArrayList(new CreatePetProspect(name, type, breedID, DOB, true, weight, prospect));
         return createPetPros;
     }
 

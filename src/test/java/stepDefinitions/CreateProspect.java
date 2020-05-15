@@ -2,28 +2,23 @@ package stepDefinitions;
 
 import base.TestBase;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-import io.restassured.response.Response;
 import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
+import model.Response.Prospect.GetProspectResponse.getProspectResponsePayload;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import model.Response.Prospect.GetProspectResponse.getProspectResponsePayload;
-import net.thucydides.core.annotations.Steps;
-import org.junit.Assert;
 
-import static io.restassured.RestAssured.given;
-import static data.Prospect_TestData.*;
 import static Utility.PropertyHolder.*;
+import static data.Prospect_TestData.*;
+import static io.restassured.RestAssured.given;
 
-public class createProspect extends TestBase {
-    @Steps
-    Response response;
-
+public class CreateProspect extends TestBase {
+//@Steps
     @When("^User hit the POST prospect request$")
     public void user_hit_the_post_prospect_request(DataTable table) throws IOException {
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
