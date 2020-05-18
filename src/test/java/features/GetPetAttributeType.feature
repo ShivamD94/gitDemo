@@ -10,11 +10,11 @@ Feature: Get Pet details by Attribute type
     And User validates the jsonSchema with "GetPetAttributeType"
 
     Examples:
-    |type                  |status_code|
-    |{petType}             |  200      |
-    |{Age}                 |  200      |
-    |{type}                |  400      |
-    |{breed,Mixed,age,2}   |  400      |
+    |type                |status_code|
+    |petType             |  200      |
+    |Age                 |  200      |
+    |type                |  400      |
+    |breed,Mixed,age,2   |  400      |
 
 
 
