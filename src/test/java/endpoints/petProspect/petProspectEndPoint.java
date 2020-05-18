@@ -1,7 +1,7 @@
 package endpoints.petProspect;
 
 public enum petProspectEndPoint {
-    PostPetProspect("fdp-prospect-service/v1/prospect-pets");
+    PostPetProspect("fdp-prospect-pet-service/v1/prospect-pets");
 
     private String resource;
 

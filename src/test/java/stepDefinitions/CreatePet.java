@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
+import model.Response.Pet.GetPetBreed.GetPetBreedRes;
 import net.thucydides.core.annotations.Step;
 
 import java.io.IOException;
@@ -20,44 +21,34 @@ public class CreatePet extends TestBase {
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
         String URI=getProperty("URI").concat("/"+type);
+        System.out.println(URI);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
 
     }
 
-    @And("^User fetch the BreedType and BreedID of the pet$")
-    public void user_fetch_the_breedtype_and_breedid_of_the_pet(){
-//        int i;
-//        String BreedType;
-//        List<String> BreedID=new ArrayList<>();
-//        PetBreed breed=response.getBody().as(PetBreed.class);
-//        BreedType=breed.getLabel();
-//        for(i=0;i<breed.getBreeds().size();i++){
-//            BreedID.add(breed.getBreeds().get(i).getValue());
-//            PropertyHolder.setProperty("BreedID["+i+"]",BreedID.get(i));
-//        }
-//        PropertyHolder.setProperty("BreedType",BreedType);
-        String breedID1= getJsonPath(response,"[0].breeds[0].value");
-        String breedID2= getJsonPath(response,"[1].breeds[0].value");
-        setProperty("breedID1",breedID1);
-        setProperty("breedID2",breedID2);
+    @And("^User fetch the BreedType and BreedID of (.+) pet$")
+    public void user_fetch_the_breedtype_and_breedid_of_pet(String pettype){
+        String breedID=null;
+        GetPetBreedRes breed=response.getBody().as(GetPetBreedRes.class);
+        if(pettype.equalsIgnoreCase("DOG")){
+          breedID  = breed.getPayload().get(0).getBreeds().get(0).getValue();
+        }
+        else if(pettype.equalsIgnoreCase("CAT")) {
+            breedID = breed.getPayload().get(1).getBreeds().get(0).getValue();
+        }
+        setProperty("BreedID",breedID);
     }
 @Step
     @When("^User hit the POST petProspect request$")
     public void user_hit_the_post_petprospect_request(DataTable table) throws IOException {
         String breedID = null;
-        String prospectID=null;
+        String prospectID = null;
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
 
         //scenario coverage for breedID - valid/null/invalid
         if(testData.get("breed").equalsIgnoreCase("valid")){
-            if(testData.get("type").equalsIgnoreCase("dog")){
-                breedID=getProperty("breedID1");
-            }
-            else if(testData.get("type").equalsIgnoreCase("cat")){
-                breedID=getProperty("breedID2");
-            }
-            else{log.info("Invalid Pet type provided!!!");}
+                breedID=getProperty("BreedID");
         }
         else if(testData.get("breed").equalsIgnoreCase("null")){
             breedID=null;
@@ -76,7 +67,6 @@ public class CreatePet extends TestBase {
         else if(testData.get("prospect").equalsIgnoreCase("null")){
             prospectID=null;
         }
-
         reqSpec = given().spec(requestSpesification()).body(addPetProspectpayload(testData.get("name"),testData.get("type"),
         breedID,testData.get("DOB"),prospectID));
         response = reqSpec.when().post(getProperty("URI"));
