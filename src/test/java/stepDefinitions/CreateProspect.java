@@ -61,4 +61,17 @@ public class CreateProspect extends TestBase {
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getState(),getProperty("State"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail(),getProperty("Email"));
     }
+
+    @When("^User hit the GET prospect by email request (.+)$")
+    public void user_hit_the_get_prospect_by_email_request(String idtype) throws IOException {
+        String emailId=null;
+        if (idtype.equalsIgnoreCase("valid")){
+            emailId=getProperty("Email");
+        }
+        else if (idtype.equalsIgnoreCase("invalid")){
+            emailId="invalid@pet";
+        }
+        reqSpec = given().spec(requestSpesification()).queryParam("email",emailId);
+        response = reqSpec.when().get(getProperty("URI"));
+    }
 }
