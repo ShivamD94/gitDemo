@@ -1,11 +1,18 @@
 package model.Response.Prospect.GetProspectResponse;
 
 
+import model.Request.Prospect.CreateProspect.Detail;
+
+import java.util.List;
 
 public class getProspectResponsePayload {
 
     private String correlationId;
     private Payload payload;
+
+public getProspectResponsePayload(){
+
+}
 
     public String getCorrelationId() {
         return correlationId;
