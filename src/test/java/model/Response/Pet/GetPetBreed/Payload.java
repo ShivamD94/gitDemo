@@ -3,18 +3,18 @@ package model.Response.Pet.GetPetBreed;
 
 import java.util.List;
 
-public class PetBreed {
-    private String correlationId;
-    private String value;
+public class Payload {
+
     private String label;
+    private String value;
     private List<Breed> breeds = null;
 
-    public String getCorrelationId() {
-        return correlationId;
+    public String getLabel() {
+        return label;
     }
 
-    public void setCorrelationId(String correlationId) {
-        this.correlationId = correlationId;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getValue() {
@@ -23,14 +23,6 @@ public class PetBreed {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
     public List<Breed> getBreeds() {
