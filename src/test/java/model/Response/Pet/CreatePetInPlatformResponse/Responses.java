@@ -1,8 +1,8 @@
 package model.Response.Pet.CreatePetInPlatformResponse;
 
-public class Response {
+public class Responses {
     private String id;
-    private String createdTimestamp;
+    private String createTimestamp;
     private String petName;
 
     public String getId() {
@@ -13,12 +13,12 @@ public class Response {
         this.id = id;
     }
 
-    public String getCreatedTimestamp() {
-        return createdTimestamp;
+    public String getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreatedTimestamp(String createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    public void setCreateTimestamp(String createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 
     public String getPetName() {

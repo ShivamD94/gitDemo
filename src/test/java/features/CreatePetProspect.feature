@@ -14,10 +14,10 @@ Feature: Create new pet prospect
       | email     | <email>     |
     Then verify the status code as 201
     And User fetches ProspectID and timestamp values
-    Given User has the valid endpoint "Pet-GetPetType"
-    When User hit the GET petBreed request for "{petType}"
+    Given User has the valid endpoint "Pet-GetPetAttribute"
+    When User hit the GET petBreed request for petType
     Then verify the status code as 200
-    And User fetch the BreedType and BreedID of the pet
+    And User fetch the BreedType and BreedID of <petType> pet
 
     Given User has the valid endpoint "PetProspect-PostPetProspect"
     When User hit the POST petProspect request
@@ -34,7 +34,7 @@ Feature: Create new pet prospect
     Examples:
       |type       |country|postalCode|state|email   |status_code|name        |petType|DOB       |breedID|prospectID|
       |INDIVIDUAL |USA    |95005     |PH   |random  |200        |Martin      |dog    |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |201        |Martin      |cat    |2020-01-01|valid  |valid     |
+      |INDIVIDUAL |USA    |95005     |PH   |random  |200        |Martin      |cat    |2020-01-01|valid  |valid     |
 
   @FDP-397 @Negative
   Scenario Outline: Create a pet corresponding to a prospect in platform
@@ -49,8 +49,8 @@ Feature: Create new pet prospect
       | email     | <email>     |
     Then verify the status code as 201
     And User fetches ProspectID and timestamp values
-    Given User has the valid endpoint "Pet-GetPetType"
-    When User hit the GET petBreed request for "{petType}"
+    Given User has the valid endpoint "Pet-GetPetAttribute"
+    When User hit the GET petBreed request for petType
     Then verify the status code as 200
     And User fetch the BreedType and BreedID of the pet
 

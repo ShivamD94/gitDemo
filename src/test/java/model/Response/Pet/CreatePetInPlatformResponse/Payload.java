@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Payload {
 
-    private List<Response> response=null;
+    private List<Responses> responses=null;
 
-    public List<Response> getResponse() {
-        return response;
+    public List<Responses> getResponses() {
+        return responses;
     }
 
-    public void setResponse(List<Response> response) {
-        this.response = response;
+    public void setResponse(List<Responses> responses) {
+        this.responses = responses;
     }
 }
