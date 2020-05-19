@@ -1,4 +1,4 @@
-package model.Pet;
+package model.Response.Pet;
 
 /**
  * Model file

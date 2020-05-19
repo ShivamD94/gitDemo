@@ -1,6 +1,7 @@
 package base;
 
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -28,6 +29,7 @@ public class TestBase {
     public static Logger log = Logger.getLogger("devpinoyLogger");
     public static ResponseSpecification resSpec;
     public static PrintStream apilogs = null;
+    public static Response response;
     /**
      *
      * @return
@@ -42,7 +44,7 @@ public class TestBase {
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
-                    .setContentType(ContentType.JSON).build();
+                    .setContentType(ContentType.JSON).addHeader("X-CorrelationId","45677889").build();
             log.info("API Request Specification created");
             return reqSpec;
         }
@@ -51,11 +53,21 @@ else
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
                     .removeQueryParam("status")
-                    .setContentType(ContentType.JSON).build();
+                    .setContentType(ContentType.JSON).addHeader("X-CorrelationId","45677889").build();
             log.info("API Re-Request Specification created");
             return reqSpec;
         }
 
+    }
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     */
+    public ResponseSpecification responseSpecification() throws IOException {
+    resSpec=new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+    return resSpec;
     }
 
     /**
@@ -88,4 +100,5 @@ else
         JsonPath   js = new JsonPath(resp);
         return js.get(key).toString();
     }
+
 }
