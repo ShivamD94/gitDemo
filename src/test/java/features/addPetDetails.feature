@@ -8,7 +8,6 @@ Feature: Create new pet
     When User hit the POST request
       | Key       | Value       |
       | petType   | <petType>   |
-      |identifer  | <identifer> |
       |breedId    |<breedId>    |
       |dateOfBirth|<dateOfBirth>|
       | gender    | <gender>    |
@@ -18,11 +17,11 @@ Feature: Create new pet
     And User validates the jsonSchema with "PostPetResponse"
 
   Examples:
-  |petType |identifer | breedId | dateOfBirth | gender | status_code |
-  |Dog     |101       |    1    | 2030-04-01  |  Male  |    201      |
-  |Dog     |102       |    1    | 2030-04-02  |  Female|    201      |
-  |Cat     |201       |    2    | 2030-04-03  |  Male  |    201      |
-  |Cat     |202       |    2    |2030-04-04   |  Female|    201      |
+  |petType | breedId| dateOfBirth | gender | status_code |
+  |Dog     |   1    | 2030-04-01  |  MALE  |    201      |
+  |Dog     |   1    | 2030-04-02  |  FEMALE|    201      |
+  |Cat     |   2    | 2030-04-03  |  MALE  |    201      |
+  |Cat     |   2    | 2030-04-04  |  FEMALE|    201      |
 
    @FDP-463 @Negative
     Scenario Outline: Create a pet in platform with invalid data
@@ -31,7 +30,6 @@ Feature: Create new pet
       When User hit the POST request
         | Key       | Value       |
         | petType   | <petType>   |
-        |identifer  | <identifer> |
         |breedId    |<breedId>    |
         |dateOfBirth|<dateOfBirth>|
         | gender    | <gender>    |
@@ -39,8 +37,8 @@ Feature: Create new pet
       Then verify the status code as <status_code>
 
     Examples:
-    |petType |identifer | breedId | dateOfBirth | gender | status_code |
-    |        |101       |    1    | 2030-04-01  |  Male  | 400         |
-    |Dog     |          |    1    | 2030-04-02  |  Female| 400         |
-    |Cat     |201       |         | 2030-04-03  |  Male  | 400         |
-    |Cat     |202       |    2    | 233444      |        | 400         |
+    |petType |breedId| dateOfBirth | gender | status_code |
+    |        |  1    | 2030-04-01  |  MALE  | 400         |
+    |Dog     |  1    | 2030-04-02  |  FEMALE| 400         |
+    |Cat     |       | 2030-04-03  |  MALE  | 400         |
+    |Cat     |  2    | 233444      |        | 400         |

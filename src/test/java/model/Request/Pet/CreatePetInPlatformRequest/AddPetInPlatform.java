@@ -5,7 +5,7 @@ import java.util.List;
 public class AddPetInPlatform {
 
    private String petType;
-   private String identifer;
+   private String identifier;
    private String breedId;
    private boolean isCalculated;
    private String dateOfBirth;
@@ -16,10 +16,10 @@ public class AddPetInPlatform {
    private List<Tags> tags = null;
    private List<Vets> vets =null;
 
-   public AddPetInPlatform(String type, String identifer, String breedId, boolean isCalculated, String dateOfBirth, String gender,
+   public AddPetInPlatform(String type, String identifier, String breedId, boolean isCalculated, String dateOfBirth, String gender,
                            Source source, List<Ownerships> ownerships, List<Weights> weights, List<Tags> tags, List<Vets> vets){
        this.petType=type;
-       this.identifer=identifer;
+       this.identifier=identifier;
        this.breedId=breedId;
        this.isCalculated=isCalculated;
        this.dateOfBirth=dateOfBirth;
@@ -36,15 +36,15 @@ public class AddPetInPlatform {
         return petType;
     }
 
-    public String getIdentifer() {
-        return identifer;
+    public String getIdentifier() {
+        return identifier;
     }
 
     public String getBreedId() {
         return breedId;
     }
 
-    public boolean isCalculated() {
+    public boolean getisCalculated() {
         return isCalculated;
     }
 
