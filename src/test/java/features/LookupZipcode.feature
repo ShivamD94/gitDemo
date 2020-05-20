@@ -19,3 +19,18 @@ Feature: Validate given zip code
       | zipcode | country |
       | 99501 | USA |
       | 85001 | USA |
+
+  @FDP-464 @Negative
+  Scenario Outline: Get Validated zip
+    Given User has the valid endpoint "LOOKUP-zipCode"
+    When User hit the GET lookup service request "invalid"
+      | Key     | Value  |
+      | zipcode | <zipcode>|
+      | country | <country> |
+    Then verify the status code as 200
+#    And User validates the jsonSchema with "GetZipCodeResponse"
+
+
+    Examples:
+      | zipcode | country |
+      | 39501 | USA |
