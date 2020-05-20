@@ -1,0 +1,919 @@
+{
+    "type": "object",
+    "properties": {
+        "correlationId": {
+            "type": "string"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "responses": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "customer": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customerId": {
+                                            "type": "string"
+                                        },
+                                        "isPolicyHolder": {
+                                            "type": "boolean"
+                                        },
+                                        "isPreviousPolicyholder": {
+                                            "type": "boolean"
+                                        },
+                                        "details": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "primary": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "email": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "links": {
+                                                            "type": "array",
+                                                            "items": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "href": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "name",
+                                                                        "href"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "href": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "name",
+                                                                        "href"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "primary",
+                                                        "email",
+                                                        "name",
+                                                        "links"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        "pets": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "petName": {
+                                                            "type": "string"
+                                                        },
+                                                        "dob": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "petAge": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "petSuggestedDoB": {
+                                                                    "type": "string"
+                                                                },
+                                                                "petActualDoB": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "petAge",
+                                                                "petSuggestedDoB",
+                                                                "petActualDoB"
+                                                            ]
+                                                        },
+                                                        "petType": {
+                                                            "type": "string"
+                                                        },
+                                                        "breedId": {
+                                                            "type": "string"
+                                                        },
+                                                        "gender": {
+                                                            "type": "string"
+                                                        },
+                                                        "state": {
+                                                            "type": "string"
+                                                        },
+                                                        "zip": {
+                                                            "type": "string"
+                                                        },
+                                                        "rateMatrix": {
+                                                            "type": "array",
+                                                            "items": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "amount": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "deductible": {
+                                                                            "type": "array",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "amount": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "coPay": {
+                                                                                            "type": "array",
+                                                                                            "items": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "amount",
+                                                                                        "coPay"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "amount": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "coPay": {
+                                                                                            "type": "array",
+                                                                                            "items": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "amount",
+                                                                                        "coPay"
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "amount",
+                                                                        "deductible"
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "amount": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "deductible": {
+                                                                            "type": "array",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "amount": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "coPay": {
+                                                                                            "type": "array",
+                                                                                            "items": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "amount",
+                                                                                        "coPay"
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "amount": {
+                                                                                            "type": "string"
+                                                                                        },
+                                                                                        "coPay": {
+                                                                                            "type": "array",
+                                                                                            "items": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                },
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "percentage": {
+                                                                                                            "type": "integer"
+                                                                                                        },
+                                                                                                        "premium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "taxAndServicePremium": {
+                                                                                                            "type": "array",
+                                                                                                            "items": [
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "type": "integer"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "required": [
+                                                                                                        "percentage",
+                                                                                                        "premium",
+                                                                                                        "taxAndServicePremium"
+                                                                                                    ]
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "required": [
+                                                                                        "amount",
+                                                                                        "coPay"
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "amount",
+                                                                        "deductible"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        "quotes": {
+                                                            "type": "array",
+                                                            "items": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "version": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "chosenQuote": {
+                                                                            "type": "boolean"
+                                                                        },
+                                                                        "priceAffinityType": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "isCustom": {
+                                                                            "type": "boolean"
+                                                                        },
+                                                                        "deductibleType": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "annualPolicyMaximumLimit": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "coPayPercentage": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "annualDeductibleDollarAmount": {
+                                                                            "type": "number"
+                                                                        },
+                                                                        "premium": {
+                                                                            "type": "array",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "number"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "taxAndServicePremium": {
+                                                                            "type": "array",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "number"
+                                                                                },
+                                                                                {
+                                                                                    "type": "number"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        "upsellData": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "annualPolicyMaximumLimit": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "coPayPercentage": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "annualDeductibleDollarAmount": {
+                                                                                    "type": "integer"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "annualPolicyMaximumLimit",
+                                                                                "coPayPercentage",
+                                                                                "annualDeductibleDollarAmount"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "id",
+                                                                        "version",
+                                                                        "chosenQuote",
+                                                                        "priceAffinityType",
+                                                                        "isCustom",
+                                                                        "deductibleType",
+                                                                        "annualPolicyMaximumLimit",
+                                                                        "coPayPercentage",
+                                                                        "annualDeductibleDollarAmount",
+                                                                        "premium",
+                                                                        "taxAndServicePremium",
+                                                                        "upsellData"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        "links": {
+                                                            "type": "array",
+                                                            "items": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "href": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "name",
+                                                                        "href"
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "petName",
+                                                        "dob",
+                                                        "petType",
+                                                        "breedId",
+                                                        "gender",
+                                                        "state",
+                                                        "zip",
+                                                        "rateMatrix",
+                                                        "quotes",
+                                                        "links"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "customerId",
+                                        "isPolicyHolder",
+                                        "isPreviousPolicyholder",
+                                        "details",
+                                        "pets"
+                                    ]
+                                },
+                                "links": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "href": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name",
+                                                "href"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "customer",
+                                "links"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "responses"
+            ]
+        }
+    },
+    "required": [
+        "correlationId",
+        "payload"
+    ]
+}
