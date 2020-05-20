@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 import model.Response.Quote.CreateQuoteResponse.AddQuoteResponse;
+import model.Response.Quote.CreateQuoteResponse.Pet;
 import org.junit.Assert;
 
 import java.io.IOException;
@@ -41,16 +42,16 @@ public class CreateQuote extends TestBase {
     @Then("User fetches QuoteID value")
     public void user_fetches_QuoteID_value() {
         AddQuoteResponse quoteres = response.getBody().as(AddQuoteResponse.class);
-        String QuoteID = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().
-                get(0).getQuotes().get(0).getId();
+        Pet petresponse = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0);
+        
+        String QuoteID = petresponse.getQuotes().get(0).getId();
         setProperty("QuoteID", QuoteID);
-        String quoteversion = quoteres.getPayload().getResponses().get(0).
-                getCustomer().getPets().get(0).getQuotes().get(0).getVersion();
+        String quoteversion = petresponse.getQuotes().get(0).getVersion();
         setProperty("quoteversion",quoteversion);
         Assert.assertEquals(QuoteID,getProperty("QuoteID"));
         Assert.assertEquals(quoteversion,getProperty("quoteversion"));
-        String PetType = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getPetType();
-        String BreedId = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getBreedId();
+        String PetType = petresponse.getPetType();
+        String BreedId = petresponse.getBreedId();
         Assert.assertEquals(PetType,getProperty("PetType"));
         Assert.assertEquals(BreedId,getProperty("BreedIds"));
 
