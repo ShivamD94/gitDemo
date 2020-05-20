@@ -27,7 +27,7 @@ public class Detail {
         this.email = this.firstName + "." + this.lastName + "@pet.com";
     }
     else{ this.email=email;}
-    PropertyHolder.setProperty("Email",this.email);
+    PropertyHolder.setProperty("ProspectEmail",this.email);
     this.isPrimary=isPrimary;
     this.contacts=contacts;
     this.additionalAttributes=additionalAttributes;
