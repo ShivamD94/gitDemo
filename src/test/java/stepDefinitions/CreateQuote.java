@@ -49,11 +49,10 @@ public class CreateQuote extends TestBase {
         setProperty("quoteversion",quoteversion);
         Assert.assertEquals(QuoteID,getProperty("QuoteID"));
         Assert.assertEquals(quoteversion,getProperty("quoteversion"));
-        Assert.assertEquals("Email",getProperty("Email"));
-        Assert.assertEquals("PetType",getProperty("PetType"));
-        Assert.assertEquals("BreedId",getProperty("BreedId"));
-        Assert.assertEquals("Zip",getProperty("Zip"));
-        Assert.assertEquals("CountryCode",getProperty("CountryCode"));
+        String PetType = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getPetType();
+        String BreedId = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getBreedId();
+
+        
 
     }
 
