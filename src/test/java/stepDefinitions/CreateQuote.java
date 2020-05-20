@@ -51,8 +51,9 @@ public class CreateQuote extends TestBase {
         Assert.assertEquals(quoteversion,getProperty("quoteversion"));
         String PetType = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getPetType();
         String BreedId = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0).getBreedId();
+        Assert.assertEquals(PetType,getProperty("PetType"));
+        Assert.assertEquals(BreedId,getProperty("BreedIds"));
 
-        
 
     }
 
