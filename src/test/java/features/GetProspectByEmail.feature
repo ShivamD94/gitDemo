@@ -18,7 +18,7 @@ Feature: Get prospect
     When User hit the GET prospect by email request <emailId>
     Then verify the status code as <status_code>
     And User validates the jsonSchema with "GetProspectByProspectIDResponse"
-    And User validates the data fetched
+    And User verify the get prospect data
 
   Examples:
   |type       |country|postalCode|state|email   |status_code|  emailId|

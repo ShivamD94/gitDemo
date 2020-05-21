@@ -1,5 +1,5 @@
 
-package model.Response.Prospect.GetProspectResponse.newRes;
+package model.Response.Prospect.GetProspectResponse;
 
 
 public class GetProspectRes {
