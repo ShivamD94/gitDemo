@@ -80,9 +80,9 @@ public class CreatePet extends TestBase {
         setProperty("PetTimeStamp",timeStamp);
     }
 
-    @When("^User hit the GET pet Breed data request for (.+)$")
-    public void user_hit_the_get_pet_breed_data_request_for(String type) throws IOException {
-        reqSpec = given().spec(requestSpesification()).pathParam("petType",type);
+    @When("^User hit the GET pet Breed data request for (.+) and (.+)$")
+    public void user_hit_the_get_pet_breed_data_request_for_and(String type, String country) throws IOException {
+        reqSpec = given().spec(requestSpesification()).pathParam("petType",type).queryParam("countryCode",country);
         response = reqSpec.when().get(getProperty("URI"));
     }
 }
