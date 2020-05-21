@@ -1,8 +1,6 @@
 
 package model.Request.Prospect.CreateProspect;
 
-import Utility.PropertyHolder;
-
 import java.util.List;
 
 public class Detail {
@@ -27,7 +25,7 @@ public class Detail {
         this.email = this.firstName + "." + this.lastName + "@pet.com";
     }
     else{ this.email=email;}
-    PropertyHolder.setProperty("Email",this.email);
+
     this.isPrimary=isPrimary;
     this.contacts=contacts;
     this.additionalAttributes=additionalAttributes;

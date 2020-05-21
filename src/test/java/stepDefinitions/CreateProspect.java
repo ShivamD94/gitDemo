@@ -7,6 +7,8 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 import model.Response.Prospect.GetProspectResponse.getProspectResponsePayload;
+import model.Response.Prospect.GetProspectResponse.newRes.GetProspectRes;
+import model.Response.Prospect.GetProspectResponse.newRes.Response;
 import org.junit.Assert;
 
 import java.io.IOException;
@@ -63,15 +65,29 @@ public class CreateProspect extends TestBase {
     }
 
     @When("^User hit the GET prospect by email request (.+)$")
-    public void user_hit_the_get_prospect_by_email_request(String idtype) throws IOException {
+    public void user_hit_the_get_prospect_by_email_request(String email) throws IOException {
         String emailId=null;
-        if (idtype.equalsIgnoreCase("valid")){
+        if (email.equalsIgnoreCase("valid")){
             emailId=getProperty("Email");
         }
-        else if (idtype.equalsIgnoreCase("invalid")){
+        else if (email.equalsIgnoreCase("invalid")){
             emailId="invalid@pet";
         }
+        else if (email.equalsIgnoreCase("null")){
+            emailId=null;
+        }
+        else emailId=email;
         reqSpec = given().spec(requestSpesification()).queryParam("email",emailId);
         response = reqSpec.when().get(getProperty("URI"));
+    }
+
+    @And("^User validates the data fetched$")
+    public void user_validates_the_data_fetched(){
+        GetProspectRes res=response.as(GetProspectRes.class);
+        Response data=res.getPayload().getResponses().get(0);
+        Assert.assertEquals(getProperty("ProspectID"),data.getId());
+        Assert.assertEquals(getProperty("Country"),data.getCountry());
+        Assert.assertEquals(getProperty("ProspectName"),data.getDetails().get(0).getName());
+        Assert.assertEquals(getProperty("Email"),data.getDetails().get(0).getEmail());
     }
 }
