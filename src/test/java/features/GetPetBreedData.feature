@@ -11,9 +11,9 @@ Feature: Get Pet details by Attribute type
 
     Examples:
     |type|country     |status_code|
-    |DOG |USA         |  200      |
+    |DOG |US          |  200      |
     |DOG |CAN         |  200      |
-    |CAT |USA         |  200      |
+    |CAT |US          |  200      |
     |CAT |CAN         |  200      |
 
   @FDP-544 @Negative
@@ -25,7 +25,7 @@ Feature: Get Pet details by Attribute type
 
     Examples:
       |type|country     |status_code|
-      |RAT |USA         |  400      |
+      |RAT |US          |  400      |
       |DOG |IND         |  400      |
 
 
