@@ -4,18 +4,14 @@ import base.TestBase;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
-
-import model.Response.Quote.CreateQuoteResponse.AddQuoteResponse;
-import model.Response.Quote.CreateQuoteResponse.Pet;
+import model.Response.Quote.CreateQuoteResponse.*;
 import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Utility.PropertyHolder.getProperty;
-import static Utility.PropertyHolder.setProperty;
-import static data.Prospect_TestData.addprospectpayload;
+import static Utility.PropertyHolder.*;
 import static data.Quote_TestData.addquotepayload;
 import static io.restassured.RestAssured.given;
 
@@ -53,7 +49,12 @@ public class CreateQuote extends TestBase {
         String PetType = petresponse.getPetType();
         String BreedId = petresponse.getBreedId();
         Assert.assertEquals(PetType,getProperty("PetType"));
+
         Assert.assertEquals(BreedId,getProperty("BreedId"));
+
+
+
+        Assert.assertNotNull("Rate Matrix returned is Null",petresponse.getRateMatrix());
 
 
     }

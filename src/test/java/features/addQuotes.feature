@@ -1,7 +1,7 @@
-@FDP-352
+@FDP-352 @FDP-358
 Feature: Create quote with customer and pet
 
-  @FDP-352 @Positive
+  @FDP-352 @FDP-358 @Positive
   Scenario Outline: Create a quote along with customer and pet
 
     Given User has the valid endpoint "Quote-AddQuote"
