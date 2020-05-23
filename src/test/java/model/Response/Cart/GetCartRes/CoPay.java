@@ -5,15 +5,15 @@ import java.util.List;
 
 public class CoPay {
 
-    private Integer percentage;
+    private Double percentage;
     private List<Integer> premium = null;
     private List<Integer> taxAndServicePremium = null;
 
-    public Integer getPercentage() {
+    public Double getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(Integer percentage) {
+    public void setPercentage(Double percentage) {
         this.percentage = percentage;
     }
 

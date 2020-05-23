@@ -4,32 +4,32 @@ package model.Response.Cart.GetCartRes;
 
 public class UpsellData {
 
-    private Integer annualDeductibleDollarAmount;
-    private Integer annualPolicyMaximumLimit;
-    private Integer coPayPercentage;
+    private Double annualPolicyMaximumLimit;
+    private Double coPayPercentage;
+    private Double annualDeductibleDollarAmount;
 
-    public Integer getAnnualDeductibleDollarAmount() {
-        return annualDeductibleDollarAmount;
-    }
-
-    public void setAnnualDeductibleDollarAmount(Integer annualDeductibleDollarAmount) {
-        this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
-    }
-
-    public Integer getAnnualPolicyMaximumLimit() {
+    public Double getAnnualPolicyMaximumLimit() {
         return annualPolicyMaximumLimit;
     }
 
-    public void setAnnualPolicyMaximumLimit(Integer annualPolicyMaximumLimit) {
+    public void setAnnualPolicyMaximumLimit(Double annualPolicyMaximumLimit) {
         this.annualPolicyMaximumLimit = annualPolicyMaximumLimit;
     }
 
-    public Integer getCoPayPercentage() {
+    public Double getCoPayPercentage() {
         return coPayPercentage;
     }
 
-    public void setCoPayPercentage(Integer coPayPercentage) {
+    public void setCoPayPercentage(Double coPayPercentage) {
         this.coPayPercentage = coPayPercentage;
+    }
+
+    public Double getAnnualDeductibleDollarAmount() {
+        return annualDeductibleDollarAmount;
+    }
+
+    public void setAnnualDeductibleDollarAmount(Double annualDeductibleDollarAmount) {
+        this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
     }
 
 }

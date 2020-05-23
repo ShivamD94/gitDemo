@@ -3,11 +3,9 @@ package data;
 import Utility.UtilityMethods;
 
 import model.Request.quote.*;
-
-import org.assertj.core.util.Lists;
-
 import java.util.ArrayList;
 import java.util.List;
+import static Utility.PropertyHolder.*;
 
 public class Quote_TestData {
 
@@ -18,8 +16,14 @@ public class Quote_TestData {
         Attribution attributions=new Attribution();
 
         List<Contact> contact=new ArrayList<>();
+        String emailID;
+        if(email.equalsIgnoreCase("random")){
+            emailID=UtilityMethods.getRandomString()+ "@globallogic.com";
+        }
+        else emailID=email;
+        setProperty("CustomerEmail",emailID);
         Person person=new Person(false,UtilityMethods.getRandomString(),UtilityMethods.getRandomString(),
-                UtilityMethods.getRandomString(),UtilityMethods.getRandomString(),UtilityMethods.getRandomString()+ "@globallogic.com",contact);
+                UtilityMethods.getRandomString(),UtilityMethods.getRandomString(),emailID,contact);
         HouseHoldAttributes houseHoldAttributes = new HouseHoldAttributes(false,
                 false,false,false);
         IndividualPolicyHolder policyholder=new IndividualPolicyHolder(person,houseHoldAttributes);

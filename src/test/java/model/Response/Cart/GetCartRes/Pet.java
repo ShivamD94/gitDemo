@@ -5,39 +5,16 @@ import java.util.List;
 
 public class Pet {
 
-    private String breedId;
-    private Dob dob;
-    private String gender;
     private String id;
-    private List<Link_> links = null;
     private String petName;
+    private Dob dob;
     private String petType;
-    private List<Quote> quotes = null;
+    private String breedId;
+    private String gender;
+    private String state;
+    private String zip;
     private List<RateMatrix> rateMatrix = null;
-
-    public String getBreedId() {
-        return breedId;
-    }
-
-    public void setBreedId(String breedId) {
-        this.breedId = breedId;
-    }
-
-    public Dob getDob() {
-        return dob;
-    }
-
-    public void setDob(Dob dob) {
-        this.dob = dob;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    private List<Quote> quotes = null;
 
     public String getId() {
         return id;
@@ -45,14 +22,6 @@ public class Pet {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public List<Link_> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link_> links) {
-        this.links = links;
     }
 
     public String getPetName() {
@@ -63,6 +32,14 @@ public class Pet {
         this.petName = petName;
     }
 
+    public Dob getDob() {
+        return dob;
+    }
+
+    public void setDob(Dob dob) {
+        this.dob = dob;
+    }
+
     public String getPetType() {
         return petType;
     }
@@ -71,12 +48,36 @@ public class Pet {
         this.petType = petType;
     }
 
-    public List<Quote> getQuotes() {
-        return quotes;
+    public String getBreedId() {
+        return breedId;
     }
 
-    public void setQuotes(List<Quote> quotes) {
-        this.quotes = quotes;
+    public void setBreedId(String breedId) {
+        this.breedId = breedId;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
     public List<RateMatrix> getRateMatrix() {
@@ -85,6 +86,14 @@ public class Pet {
 
     public void setRateMatrix(List<RateMatrix> rateMatrix) {
         this.rateMatrix = rateMatrix;
+    }
+
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
     }
 
 }

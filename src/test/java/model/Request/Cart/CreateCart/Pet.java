@@ -1,7 +1,7 @@
 
 package model.Request.Cart.CreateCart;
 
-import model.Response.quote.CreateQuote.RateMatrix;
+import model.Response.Quote.CreateQuoteResponse.RateMatrix;
 
 import java.util.List;
 

@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Deductible {
 
-    private String amount;
+    private Integer amount;
     private List<CoPay> coPay = null;
 
-    public String getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 

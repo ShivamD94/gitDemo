@@ -5,16 +5,14 @@ import java.util.List;
 
 public class RateMatrix {
 
-    private String amount;
+    private Double amount;
     private List<Deductible> deductible = null;
-    private String state;
-    private String zip;
 
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -24,22 +22,6 @@ public class RateMatrix {
 
     public void setDeductible(List<Deductible> deductible) {
         this.deductible = deductible;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
     }
 
 }
