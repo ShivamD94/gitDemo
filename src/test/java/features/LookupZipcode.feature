@@ -9,7 +9,7 @@ Feature: Validate given zip code
       | zipcode | <zipcode>|
       | country | <country> |
     Then verify the status code as 200
-#    And User validates the jsonSchema with "GetZipCodeResponse"
+    And User validates the jsonSchema with "GetZipCodeResponse"
     And User verify the get response data
       | state |
       | AK |
@@ -17,8 +17,8 @@ Feature: Validate given zip code
 
     Examples:
       | zipcode | country |
-      | 99501 | USA |
-      | 85001 | USA |
+      | 99501 | US |
+      | 85001 | US |
 
   @FDP-464 @Negative
   Scenario Outline: Get Validated zip
@@ -27,10 +27,9 @@ Feature: Validate given zip code
       | Key     | Value  |
       | zipcode | <zipcode>|
       | country | <country> |
-    Then verify the status code as 200
-#    And User validates the jsonSchema with "GetZipCodeResponse"
-
+    Then verify the status code as 400
+    And User validates the jsonSchema with "GetZipCodeResponse"
 
     Examples:
       | zipcode | country |
-      | 39501 | USA |
+      | 201301 | IN |

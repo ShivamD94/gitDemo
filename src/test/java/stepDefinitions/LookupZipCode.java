@@ -21,13 +21,13 @@ public class LookupZipCode extends TestBase {
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
 
         if (zip.equalsIgnoreCase("valid")){
-            setProperty("Country",testData.get("country"));
             setProperty("ZipCode",testData.get("zipcode"));
+            setProperty("Country",testData.get("country"));
 
         }
         else if (zip.equalsIgnoreCase("invalid")){
-            setProperty("ZipCode","201301");
-            setProperty("Country","India");
+            setProperty("ZipCode",testData.get("zipcode"));
+            setProperty("Country",testData.get("country"));
 
         }
         reqSpec = given().spec(requestSpesification()).queryParam("zip", getProperty("ZipCode"))
