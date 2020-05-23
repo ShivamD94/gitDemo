@@ -20,4 +20,4 @@ Feature: Create quote with customer and pet
 
     Examples:
       | email  | pettype |breedid |gender| state | zip    |countrycode | status_code|
-      | random | dog     | 123abc | male | PH    | 95055  |  USA       | 201        |
+      | random | DOG     | 3JQT5U05 | MALE | PA    | 19073  |  US       | 200       |

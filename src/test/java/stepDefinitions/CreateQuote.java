@@ -53,7 +53,7 @@ public class CreateQuote extends TestBase {
         String PetType = petresponse.getPetType();
         String BreedId = petresponse.getBreedId();
         Assert.assertEquals(PetType,getProperty("PetType"));
-        Assert.assertEquals(BreedId,getProperty("BreedIds"));
+        Assert.assertEquals(BreedId,getProperty("BreedId"));
 
 
     }
