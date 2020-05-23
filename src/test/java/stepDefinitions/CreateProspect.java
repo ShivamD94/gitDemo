@@ -68,8 +68,6 @@ public class CreateProspect extends TestBase {
 
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getId(),getProperty("ProspectID"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getCountry(),getProperty("Country"));
-        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getPostalCode(),getProperty("PostalCode"));
-        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getState(),getProperty("State"));
         Assert.assertEquals(email,getProperty("email"));
         Assert.assertEquals(firstname,getProperty("firstname"));
         GetProspectRes res=response.as(GetProspectRes.class);
