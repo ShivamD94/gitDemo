@@ -7,6 +7,8 @@ public class Response {
 
     private String id;
     private String country;
+    private String postalCode;
+    private String state;
     private List<Detail> details = null;
     private Customer customer;
     private List<Object> pets = null;
@@ -27,6 +29,24 @@ public class Response {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getState() {
+        return state;
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public List<Detail> getDetails() {

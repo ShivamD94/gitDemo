@@ -17,6 +17,7 @@ import static Utility.PropertyHolder.getProperty;
 import static Utility.PropertyHolder.setProperty;
 import static data.Prospect_TestData.addprospectpayload;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class CreateProspect extends TestBase {
 //@Steps
@@ -55,6 +56,22 @@ public class CreateProspect extends TestBase {
 
     @And("User verify the get prospect data")
     public void user_verify_the_get_prospect_data() {
+
+        getProspectResponsePayload getRes=response.getBody().as(getProspectResponsePayload.class);
+        Assert.assertEquals(getProperty("postalcode"),response.jsonPath().getString("postalcode"));
+        Assert.assertEquals(getProperty("email"),response.jsonPath().getString("email"));
+        String firstname = getRes.getPayload().getResponses().get(0).getDetails().get(0).getFirstName();
+        setProperty("firstname", firstname);
+        String email = getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail();
+        setProperty("email", email);
+
+
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getId(),getProperty("ProspectID"));
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getCountry(),getProperty("Country"));
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getPostalCode(),getProperty("PostalCode"));
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getState(),getProperty("State"));
+        Assert.assertEquals(email,getProperty("email"));
+        Assert.assertEquals(firstname,getProperty("firstname"));
         GetProspectRes res=response.as(GetProspectRes.class);
         Response data=res.getPayload().getResponses().get(0);
         Assert.assertEquals(getProperty("ProspectID"),data.getId());

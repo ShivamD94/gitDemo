@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static Utility.PropertyHolder.*;
-
 public class Prospect_TestData {
     /**
      *
@@ -25,7 +24,9 @@ public class Prospect_TestData {
         List<Detail> detail=new ArrayList<>();
         List<Contact> contact=new ArrayList<>();
         List<AdditionalAttribute> attribute=new ArrayList<>();
-
+        if(email.equalsIgnoreCase("same")){
+            email=getProperty("Email");
+        }
         contact.add(new Contact("HOME","(999)-9999-999",0));
         attribute.add(new AdditionalAttribute("name","value"));
         detail.add(new Detail(UtilityMethods.getRandomString(),UtilityMethods.getRandomString(),
