@@ -32,8 +32,5 @@ public class Contact {
         this.preference = preference;
     }
 
-    public void setPreference(Integer preference) {
-        this.preference = preference;
-    }
 
 }

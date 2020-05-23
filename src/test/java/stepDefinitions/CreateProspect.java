@@ -57,7 +57,7 @@ public class CreateProspect extends TestBase {
     @And("User verify the get prospect data")
     public void user_verify_the_get_prospect_data() {
 
-        getProspectResponsePayload getRes=response.getBody().as(getProspectResponsePayload.class);
+        GetProspectRes getRes=response.getBody().as(GetProspectRes.class);
         Assert.assertEquals(getProperty("postalcode"),response.jsonPath().getString("postalcode"));
         Assert.assertEquals(getProperty("email"),response.jsonPath().getString("email"));
         String firstname = getRes.getPayload().getResponses().get(0).getDetails().get(0).getFirstName();
