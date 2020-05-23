@@ -1,37 +1,23 @@
 @FDP-502
 Feature: Get Cart
+#### Pre requisite - Run create cart @FDP-501
 
-  @FDP-502
-  Background: Prerequisite for create cart
-
-    ####   Pre-requisite 1 ---- Create Prospect  ####
-    Given User has the valid endpoint "Prospect-AddProspect"
-    When User hit the POST prospect request
-      | Key       | Value       |
-      | type      | INDIVIDUAL  |
-      | country   | USA         |
-      | postalCode| 95005       |
-      | state     | PH          |
-      | email     | random      |
-    Then verify the status code as 201
-    And User fetches ProspectID and timestamp values
-  ####   Pre-requisite 2 ---- Get Pet Attribute for ProspectPet creation   ####
-    Given User has the valid endpoint "Pet-GetPetAttribute"
-    When User hit the GET petBreed request for petType
+  Background: Pre requisite for get cart
+     ######  Create quote   #####
+    Given User has the valid endpoint "Quote-AddQuote"
+    When User hit the POST quote request
+      | Key        | Value        |
+      | email      | random       |
+      | pettype    | DOG          |
+      | breedid    | 3JQT5U05     |
+      | gender     | MALE         |
+      | state      | PA           |
+      | zip        | 19073        |
+      | countrycode| US           |
     Then verify the status code as 200
-    And User fetch the BreedType and BreedID of dog pet
-  ####   Pre-requisite 3 ---- Create ProspectPet   ####
-    Given User has the valid endpoint "PetProspect-PostPetProspect"
-    When User hit the POST petProspect request
-      | Key       | Value     |
-      | name      | Bruno     |
-      | type      | dog       |
-      | DOB       | 2020-01-01|
-      | breed     | valid     |
-      | prospect  | valid     |
-    Then verify the status code as 201
-    And User fetches PetID and timestamp values
-  ####   Pre-requisite 4 ----  Create Cart with above data   ####
+    And User fetches QuoteID value
+
+  #### Create Cart with above data   ####
     Given User has the valid endpoint "Cart-AddCart"
     When User hit the POST cart request
       |customerID|valid|

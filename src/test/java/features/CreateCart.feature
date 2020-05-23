@@ -47,7 +47,7 @@ Feature: Create new cart
 
 
   @FDP-501 @Positive
-  Scenario Outline: Create a cart in platform with valid data
+  Scenario: Create a cart in platform with valid data
 
   #### Create Cart with above data   ####
     Given User has the valid endpoint "Cart-AddCart"
@@ -60,10 +60,6 @@ Feature: Create new cart
     And User validates the jsonSchema with "PostCart"
     And User fetches CartID and timestamp values
 
-    Examples:
-      |status_code|customerID|petID|rateMatrix|quotes|
-      |201        |valid     |valid|valid     |valid |
-
 
   @FDP-501 @Negative
   Scenario Outline: Create a cart in platform with invalid data
@@ -71,10 +67,10 @@ Feature: Create new cart
   #### Create Cart with above data   ####
     Given User has the valid endpoint "Cart-AddCart"
     When User hit the POST cart request
-    |customerID|<customerID>|
-    |petID     |<petID>     |
-    |rateMatrix|<rateMatrix>|
-    |quotes    |<quotes>    |
+      |customerID|<customerID>|
+      |petID     |<petID>     |
+      |rateMatrix|<rateMatrix>|
+      |quotes    |<quotes>    |
     Then verify the status code as 400
 
 
