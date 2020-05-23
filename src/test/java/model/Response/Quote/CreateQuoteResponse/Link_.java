@@ -1,8 +1,8 @@
 
-package model.Response.quote.CreateQuote;
+package model.Response.Quote.CreateQuoteResponse;
 
 
-public class Link {
+public class Link_ {
 
     private String name;
     private String href;

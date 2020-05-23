@@ -16,7 +16,7 @@
                                 "id": {
                                     "type": "string"
                                 },
-                                "createdTimestamp": {
+                                "createTimestamp": {
                                     "type": "string"
                                 },
                                 "links": {
@@ -42,7 +42,7 @@
                             },
                             "required": [
                                 "id",
-                                "createdTimestamp",
+                                "createTimestamp",
                                 "links"
                             ]
                         }

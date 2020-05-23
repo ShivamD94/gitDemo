@@ -1,5 +1,5 @@
 
-package model.Response.quote.CreateQuote;
+package model.Response.Quote.CreateQuoteResponse;
 
 
 public class Dob {

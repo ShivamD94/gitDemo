@@ -56,6 +56,7 @@ public class CreatePet extends TestBase {
         else if(testData.get("breed").equalsIgnoreCase("invalid")){
             breedID="123";
         }
+        else breedID=testData.get("breed");
 
         //scenario coverage for prospectID - valid/null/invalid
         if(testData.get("prospect").equalsIgnoreCase("valid")){

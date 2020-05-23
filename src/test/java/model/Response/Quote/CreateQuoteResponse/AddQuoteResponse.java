@@ -1,8 +1,8 @@
+package model.Response.Quote.CreateQuoteResponse;
 
-package model.Response.Cart.CreateCartRes;
 
 
-public class CreateCartRes {
+public class AddQuoteResponse {
 
     private String correlationId;
     private Payload payload;
@@ -22,5 +22,4 @@ public class CreateCartRes {
     public void setPayload(Payload payload) {
         this.payload = payload;
     }
-
 }

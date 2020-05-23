@@ -1,5 +1,5 @@
 
-package model.Response.quote.CreateQuote;
+package model.Response.Quote.CreateQuoteResponse;
 
 import java.util.List;
 
@@ -16,21 +16,6 @@ public class Quote {
     private Double annualDeductibleDollarAmount;
     private List<Double> premium = null;
     private List<Double> taxAndServicePremium = null;
-
-//    public List Quote(){
-//        return id;
-//        return version;
-//        return chosenQuote;
-//        return priceAffinityType;
-//        return isCustom;
-//        return deductibleType;
-//        return annualPolicyMaximumLimit;
-//        return coPayPercentage;
-//        return annualDeductibleDollarAmount;
-//        return premium;
-//        return taxAndServicePremium;
-//
-//    }
 
     public String getId() {
         return id;

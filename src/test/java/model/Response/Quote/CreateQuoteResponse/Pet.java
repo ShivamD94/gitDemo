@@ -1,27 +1,33 @@
 
-package model.Response.Cart.GetCartRes;
+package model.Response.Quote.CreateQuoteResponse;
 
 import java.util.List;
 
 public class Pet {
 
-    private String id;
+    private String petId;
     private String petName;
     private Dob dob;
     private String petType;
     private String breedId;
     private String gender;
+    private Weight weight;
+    private Boolean hasMicrochip;
+    private Boolean isWorkingDog;
     private String state;
     private String zip;
+    private String countryCode;
+    private GeneralQuoteRequest generalQuoteRequest;
     private List<RateMatrix> rateMatrix = null;
     private List<Quote> quotes = null;
+    private List<Link> links = null;
 
-    public String getId() {
-        return id;
+    public String getPetId() {
+        return petId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPetId(String petId) {
+        this.petId = petId;
     }
 
     public String getPetName() {
@@ -64,6 +70,30 @@ public class Pet {
         this.gender = gender;
     }
 
+    public Weight getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Weight weight) {
+        this.weight = weight;
+    }
+
+    public Boolean getHasMicrochip() {
+        return hasMicrochip;
+    }
+
+    public void setHasMicrochip(Boolean hasMicrochip) {
+        this.hasMicrochip = hasMicrochip;
+    }
+
+    public Boolean getIsWorkingDog() {
+        return isWorkingDog;
+    }
+
+    public void setIsWorkingDog(Boolean isWorkingDog) {
+        this.isWorkingDog = isWorkingDog;
+    }
+
     public String getState() {
         return state;
     }
@@ -80,6 +110,22 @@ public class Pet {
         this.zip = zip;
     }
 
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public GeneralQuoteRequest getGeneralQuoteRequest() {
+        return generalQuoteRequest;
+    }
+
+    public void setGeneralQuoteRequest(GeneralQuoteRequest generalQuoteRequest) {
+        this.generalQuoteRequest = generalQuoteRequest;
+    }
+
     public List<RateMatrix> getRateMatrix() {
         return rateMatrix;
     }
@@ -94,6 +140,14 @@ public class Pet {
 
     public void setQuotes(List<Quote> quotes) {
         this.quotes = quotes;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 
 }

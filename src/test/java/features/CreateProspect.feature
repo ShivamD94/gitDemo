@@ -44,8 +44,8 @@ Feature: Create new prospect
       |type       |country|postalCode|state|email   |status_code|
       |           |USA    |95005     |PH   |random  |400        |
       |INDIVIDUAL |       |95005     |PH   |random  |400        |
-      |INDIVIDUAL |USA    |95005     |     |random  |400        |
-      |INDIVIDUAL |USA    |          |PH   |random  |400        |
+      |INDIVIDUAL |USA    |95005     |     |random  |201        |
+      |INDIVIDUAL |USA    |          |PH   |random  |201        |
       |INDIVIDUAL |USA    |95005     |PH   |        |400        |
       |INDIVIDUAL |USA    |95005     |PH   |123.com |400        |
 
@@ -61,7 +61,7 @@ Feature: Create new prospect
       | country   | USA         |
       | postalCode| 95005       |
       | state     | PH          |
-      | email     |testemail@pet.com|
+      | email     | random      |
     Then verify the status code as 201
     When User hit the POST prospect request
       | Key       | Value       |
@@ -69,5 +69,5 @@ Feature: Create new prospect
       | country   | USA         |
       | postalCode| 95005       |
       | state     | PH          |
-      | email     |testemail@pet.com|
+      | email     | same        |
     Then verify the status code as 400

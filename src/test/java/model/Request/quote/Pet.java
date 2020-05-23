@@ -1,7 +1,6 @@
 
-package model.Response.quote.CreateQuote;
+package model.Request.quote;
 
-import java.util.List;
 
 public class Pet {
 
@@ -18,9 +17,46 @@ public class Pet {
     private String zip;
     private String countryCode;
     private GeneralQuoteRequest generalQuoteRequest;
-    private List<RateMatrix> rateMatrix = null;
-    private List<Quote> quotes = null;
-    private List<Link> links = null;
+
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Pet() {
+    }
+
+    /**
+     * 
+     * @param zip
+     * @param petId
+     * @param gender
+     * @param generalQuoteRequest
+     * @param breedId
+     * @param petType
+     * @param weight
+     * @param hasMicrochip
+     * @param petName
+     * @param isWorkingDog
+     * @param dob
+     * @param countryCode
+     * @param state
+     */
+    public Pet(String petId, String petName, Dob dob, String petType, String breedId, String gender, Weight weight, Boolean hasMicrochip, Boolean isWorkingDog, String state, String zip, String countryCode, GeneralQuoteRequest generalQuoteRequest) {
+        super();
+        this.petId = petId;
+        this.petName = petName;
+        this.dob = dob;
+        this.petType = petType;
+        this.breedId = breedId;
+        this.gender = gender;
+        this.weight = weight;
+        this.hasMicrochip = hasMicrochip;
+        this.isWorkingDog = isWorkingDog;
+        this.state = state;
+        this.zip = zip;
+        this.countryCode = countryCode;
+        this.generalQuoteRequest = generalQuoteRequest;
+    }
 
     public String getPetId() {
         return petId;
@@ -124,30 +160,6 @@ public class Pet {
 
     public void setGeneralQuoteRequest(GeneralQuoteRequest generalQuoteRequest) {
         this.generalQuoteRequest = generalQuoteRequest;
-    }
-
-    public List<RateMatrix> getRateMatrix() {
-        return rateMatrix;
-    }
-
-    public void setRateMatrix(List<RateMatrix> rateMatrix) {
-        this.rateMatrix = rateMatrix;
-    }
-
-    public List<Quote> getQuotes() {
-        return quotes;
-    }
-
-    public void setQuotes(List<Quote> quotes) {
-        this.quotes = quotes;
-    }
-
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 
 }

@@ -5,17 +5,9 @@ import java.util.List;
 
 public class Response {
 
-    private Customer customer;
     private String id;
-    private List<Link__> links = null;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+    private Customer customer;
+    private List<Link_> links = null;
 
     public String getId() {
         return id;
@@ -25,11 +17,19 @@ public class Response {
         this.id = id;
     }
 
-    public List<Link__> getLinks() {
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Link_> getLinks() {
         return links;
     }
 
-    public void setLinks(List<Link__> links) {
+    public void setLinks(List<Link_> links) {
         this.links = links;
     }
 

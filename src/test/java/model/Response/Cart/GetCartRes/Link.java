@@ -4,16 +4,8 @@ package model.Response.Cart.GetCartRes;
 
 public class Link {
 
-    private String href;
     private String name;
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
+    private String href;
 
     public String getName() {
         return name;
@@ -21,6 +13,14 @@ public class Link {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
     }
 
 }
