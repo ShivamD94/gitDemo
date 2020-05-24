@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import endpoints.pet.PetEndpoint;
 import endpoints.petProspect.petProspectEndPoint;
 import endpoints.prospect.prospectEndPoint;
+import endpoints.zip.ZipCode;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import net.thucydides.core.annotations.Step;
 
@@ -28,9 +29,14 @@ public class CommonStepDefs extends TestBase {
         else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PROSPECT")){
             URI= prospectEndPoint.valueOf(splitEndpoint[1]).getResource();
         }
-        if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PET")){
+        else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PET")){
             URI= PetEndpoint.valueOf(splitEndpoint[1]).getResource();
         }
+        if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("LOOKUP")){
+            URI= ZipCode.valueOf(splitEndpoint[1]).getResource();
+
+        }
+
         PropertyHolder.setProperty("URI",URI);
         log.info(URI);
     }
