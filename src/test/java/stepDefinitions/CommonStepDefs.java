@@ -32,17 +32,14 @@ public class CommonStepDefs extends TestBase {
             URI= prospectEndPoint.valueOf(splitEndpoint[1]).getResource();
         }
         else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PET")){
+            URI= PetEndpoint.valueOf(splitEndpoint[1]).getResource();
+        }
         else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("QUOTE")) {
             URI = quoteEndPoint.valueOf(splitEndpoint[1]).getResource();
         }
-        if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PET")){
-            URI= PetEndpoint.valueOf(splitEndpoint[1]).getResource();
-        }
-        if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("LOOKUP")){
+        else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("LOOKUP")){
             URI= ZipCode.valueOf(splitEndpoint[1]).getResource();
-
         }
-
         else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("CART")) {
             URI = CartEndpoint.valueOf(splitEndpoint[1]).getResource();
         }
