@@ -11,7 +11,7 @@ public class Quote {
     private String priceAffinityType;
     private Boolean isCustom;
     private String deductibleType;
-    private Double annualPolicyMaximumLimit;
+    private String annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
     private List<Double> premium = null;
@@ -19,7 +19,7 @@ public class Quote {
     private UpsellData upsellData;
 
     public Quote(String id,String version,Boolean chosenQuote,String priceAffinityType,Boolean isCustom,String deductibleType,
-                 Double annualPolicyMaximumLimit,Double coPayPercentage,Double annualDeductibleDollarAmount,
+                 String annualPolicyMaximumLimit,Double coPayPercentage,Double annualDeductibleDollarAmount,
                  List<Double> premium,List<Double> taxAndServicePremium,UpsellData upsellData){
         this.id=id;
         this.version=version;
@@ -53,7 +53,7 @@ public class Quote {
     public String getDeductibleType() {
         return deductibleType;
     }
-    public Double getAnnualPolicyMaximumLimit() {
+    public String getAnnualPolicyMaximumLimit() {
         return annualPolicyMaximumLimit;
     }
     public Double getCoPayPercentage() {

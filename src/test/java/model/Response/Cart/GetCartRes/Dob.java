@@ -4,14 +4,14 @@ package model.Response.Cart.GetCartRes;
 
 public class Dob {
 
-    private String petAge;
+    private Integer petAge;
     private String petSuggestedDoB;
 
-    public String getPetAge() {
+    public Integer getPetAge() {
         return petAge;
     }
 
-    public void setPetAge(String petAge) {
+    public void setPetAge(Integer petAge) {
         this.petAge = petAge;
     }
 

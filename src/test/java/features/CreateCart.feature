@@ -1,7 +1,7 @@
 @FDP-501
 Feature: Create new cart
 
-  @FDP-501
+
   Background: Prerequisite for create cart
 #    ####   Pre-requisite 1 ---- Create Prospect  ####
 #    Given User has the valid endpoint "Prospect-AddProspect"

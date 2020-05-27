@@ -4,15 +4,15 @@ package model.Response.Cart.GetCartRes;
 
 public class UpsellData {
 
-    private Double annualPolicyMaximumLimit;
+    private String annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
 
-    public Double getAnnualPolicyMaximumLimit() {
+    public String getAnnualPolicyMaximumLimit() {
         return annualPolicyMaximumLimit;
     }
 
-    public void setAnnualPolicyMaximumLimit(Double annualPolicyMaximumLimit) {
+    public void setAnnualPolicyMaximumLimit(String annualPolicyMaximumLimit) {
         this.annualPolicyMaximumLimit = annualPolicyMaximumLimit;
     }
 

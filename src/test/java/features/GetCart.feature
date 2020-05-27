@@ -44,7 +44,7 @@ Feature: Get Cart
 
   ####  Validate Get Cart   ####
     Given User has the valid endpoint "Cart-GetCart"
-    When User hit the GET cart request ritesh123@gl.com
+    When User hit the GET cart request abc@gl.com
     Then verify the status code as 500
 
 
