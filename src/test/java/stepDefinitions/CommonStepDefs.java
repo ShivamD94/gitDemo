@@ -6,10 +6,12 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import endpoints.cart.CartEndpoint;
 import endpoints.pet.PetEndpoint;
 import endpoints.petProspect.petProspectEndPoint;
 import endpoints.prospect.prospectEndPoint;
 import endpoints.zip.ZipCode;
+import endpoints.quote.quoteEndPoint;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import net.thucydides.core.annotations.Step;
 
@@ -32,11 +34,15 @@ public class CommonStepDefs extends TestBase {
         else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("PET")){
             URI= PetEndpoint.valueOf(splitEndpoint[1]).getResource();
         }
-        if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("LOOKUP")){
-            URI= ZipCode.valueOf(splitEndpoint[1]).getResource();
-
+        else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("QUOTE")) {
+            URI = quoteEndPoint.valueOf(splitEndpoint[1]).getResource();
         }
-
+        else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("LOOKUP")){
+            URI= ZipCode.valueOf(splitEndpoint[1]).getResource();
+        }
+        else if(splitEndpoint[0].toUpperCase().equalsIgnoreCase("CART")) {
+            URI = CartEndpoint.valueOf(splitEndpoint[1]).getResource();
+        }
         PropertyHolder.setProperty("URI",URI);
         log.info(URI);
     }
