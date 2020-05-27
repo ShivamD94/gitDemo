@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features="src/test/java/features",plugin ={"json:reports/cucumber-report.json"},glue= {"stepDefinitions"}
-,tags ={"@FDP-352"})
+,tags={"@FDP-464"})
 public class TestRunner{
 
 }

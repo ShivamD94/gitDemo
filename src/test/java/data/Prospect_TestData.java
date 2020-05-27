@@ -9,6 +9,7 @@ import org.assertj.core.util.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static Utility.PropertyHolder.*;
 public class Prospect_TestData {
     /**
@@ -32,7 +33,8 @@ public class Prospect_TestData {
                 UtilityMethods.getRandomString(),email,true,contact,attribute));
 
         List<AddProspect> addprospect= Lists.newArrayList(new AddProspect(type,country,postalCode,state,detail));
-
+        setProperty("ProspectName",addprospect.get(0).getDetails().get(0).getName());
+        setProperty("Email",addprospect.get(0).getDetails().get(0).getEmail());
         return addprospect;
     }
 }
