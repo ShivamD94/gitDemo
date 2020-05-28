@@ -21,7 +21,6 @@ public class CreatePet extends TestBase {
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
         String URI=getProperty("URI").concat("/"+type);
-        System.out.println(URI);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
 
@@ -80,5 +79,11 @@ public class CreatePet extends TestBase {
         String timeStamp=res.getPayload().getResponses().get(0).getCreatedTimestamp();
         setProperty("PetID",PetID);
         setProperty("PetTimeStamp",timeStamp);
+    }
+
+    @When("^User hit the GET pet Breed data request for (.+) and (.+)$")
+    public void user_hit_the_get_pet_breed_data_request_for_and(String type, String country) throws IOException {
+        reqSpec = given().spec(requestSpesification()).pathParam("petType",type).queryParam("countryCode",country);
+        response = reqSpec.when().get(getProperty("URI"));
     }
 }
