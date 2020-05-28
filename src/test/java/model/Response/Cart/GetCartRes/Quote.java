@@ -10,7 +10,7 @@ public class Quote {
     private Boolean isCustom;
     private String id;
     private String deductibleType;
-    private Double annualPolicyMaximumLimit;
+    private String annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
     private List<Double> premium = null;
@@ -58,11 +58,11 @@ public class Quote {
         this.deductibleType = deductibleType;
     }
 
-    public Double getAnnualPolicyMaximumLimit() {
+    public String getAnnualPolicyMaximumLimit() {
         return annualPolicyMaximumLimit;
     }
 
-    public void setAnnualPolicyMaximumLimit(Double annualPolicyMaximumLimit) {
+    public void setAnnualPolicyMaximumLimit(String annualPolicyMaximumLimit) {
         this.annualPolicyMaximumLimit = annualPolicyMaximumLimit;
     }
 

@@ -7,7 +7,7 @@ public class Response {
 
     private String id;
     private Customer customer;
-    private List<Link_> links = null;
+    private List<Link__> links = null;
 
     public String getId() {
         return id;
@@ -25,11 +25,11 @@ public class Response {
         this.customer = customer;
     }
 
-    public List<Link_> getLinks() {
+    public List<Link__> getLinks() {
         return links;
     }
 
-    public void setLinks(List<Link_> links) {
+    public void setLinks(List<Link__> links) {
         this.links = links;
     }
 

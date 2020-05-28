@@ -10,9 +10,9 @@ import model.Response.Cart.GetCartRes.Response;
 import model.Response.Quote.CreateQuoteResponse.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import static Utility.PropertyHolder.*;

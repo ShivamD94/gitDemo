@@ -1,8 +1,8 @@
 @FDP-501
-Feature: Create new prospect
+Feature: Create new cart
 
 
-  Background: Pre requisites for create cart
+  Background: Prerequisite for create cart
 #    ####   Pre-requisite 1 ---- Create Prospect  ####
 #    Given User has the valid endpoint "Prospect-AddProspect"
 #    When User hit the POST prospect request
@@ -47,22 +47,18 @@ Feature: Create new prospect
 
 
   @FDP-501 @Positive
-  Scenario Outline: Create a cart in platform with valid data
+  Scenario: Create a cart in platform with valid data
 
   #### Create Cart with above data   ####
     Given User has the valid endpoint "Cart-AddCart"
     When User hit the POST cart request
-      |customerID|<customerID>|
-      |petID     |<petID>     |
-      |rateMatrix|<rateMatrix>|
-      |quotes    |<quotes>    |
-    Then verify the status code as <status_code>
+      |customerID|valid|
+      |petID     |valid|
+      |rateMatrix|valid|
+      |quotes    |valid|
+    Then verify the status code as 201
     And User validates the jsonSchema with "PostCart"
     And User fetches CartID and timestamp values
-
-    Examples:
-      |status_code|customerID|petID|rateMatrix|quotes|
-      |201        |valid     |valid|valid     |valid |
 
 
   @FDP-501 @Negative
@@ -71,10 +67,10 @@ Feature: Create new prospect
   #### Create Cart with above data   ####
     Given User has the valid endpoint "Cart-AddCart"
     When User hit the POST cart request
-    |customerID|<customerID>|
-    |petID     |<petID>     |
-    |rateMatrix|<rateMatrix>|
-    |quotes    |<quotes>    |
+      |customerID|<customerID>|
+      |petID     |<petID>     |
+      |rateMatrix|<rateMatrix>|
+      |quotes    |<quotes>    |
     Then verify the status code as 400
 
 

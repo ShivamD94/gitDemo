@@ -8,6 +8,7 @@ public class Pet {
     private String id;
     private String petName;
     private Dob dob;
+    private List<Link_> links = null;
     private String petType;
     private String breedId;
     private String gender;
@@ -38,6 +39,14 @@ public class Pet {
 
     public void setDob(Dob dob) {
         this.dob = dob;
+    }
+
+    public List<Link_> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link_> links) {
+        this.links = links;
     }
 
     public String getPetType() {

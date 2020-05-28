@@ -5,14 +5,14 @@ import java.util.List;
 
 public class RateMatrix {
 
-    private Double amount;
+    private String amount;
     private List<Deductible> deductible = null;
 
-    public Double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
