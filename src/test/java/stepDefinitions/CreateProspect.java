@@ -17,13 +17,13 @@ import static Utility.PropertyHolder.getProperty;
 import static Utility.PropertyHolder.setProperty;
 import static data.Prospect_TestData.addprospectpayload;
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
 
 public class CreateProspect extends TestBase {
 //@Steps
     @When("^User hit the POST prospect request$")
     public void user_hit_the_post_prospect_request(DataTable table) throws IOException {
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
+        setProperty("ProspectType",testData.get("type"));
         setProperty("Country",testData.get("country"));
         setProperty("PostalCode",testData.get("postalCode"));
         setProperty("State",testData.get("state"));
