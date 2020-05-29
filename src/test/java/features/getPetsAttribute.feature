@@ -1,6 +1,6 @@
 @FDP-353
     Feature: Get the pets details Dogs and Cats
-@FDP-353 @Positive
+@FDP-353 @Positive @Ignore
     Scenario: Get the existing Pet Details of Dogs and Cats
 
         Given User has the valid endpoint "Pet-GetPetAttribute"

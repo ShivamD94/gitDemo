@@ -59,10 +59,12 @@ public class CommonStepDefs extends TestBase {
 //        response=resSpec.then().spec(resSpec).validate(response);
         response.prettyPrint();
         response.then().assertThat().statusCode(statuscode);
+		log.info(statuscode+" Status code verified ");
     }
 
     @And("^User validates the jsonSchema with \"([^\"]*)\"$")
     public void user_validates_the_jsonschema_with_something(String schema) {
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(UtilityMethods.readResponseJsonSchema(schema)));
+		log.info("JSON Schema validated");
     }
 }
