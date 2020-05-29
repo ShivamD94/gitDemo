@@ -12,6 +12,7 @@ import org.assertj.core.util.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
+import static Utility.PropertyHolder.*;
 
 public class Pet_TestData {
     /**
@@ -40,15 +41,17 @@ public class Pet_TestData {
      * @param prospectID
      * @return
      */
-    public static List<CreatePetProspect> addPetProspectpayload(String name, String type, String breedID, String DOB, String prospectID) {
+    public static List<CreatePetProspect> addPetProspectpayload(String name, String type, String breedID,String DOB,
+                                                                String state, String zip,String gender,String prospectID) {
         List<Weight> weight = new ArrayList<>();
         List<Link> link = new ArrayList<>();
 
         weight.add(new Weight(DOB, "KG", 20.6));
         link.add(new Link("self", "/v1/prospects/" + prospectID));
-        Prospect prospect = new Prospect(prospectID, "INDIVIDUAL", link);
+        Prospect prospect = new Prospect(prospectID, getProperty("ProspectType"), link);
 
-        List<CreatePetProspect> createPetPros= Lists.newArrayList(new CreatePetProspect(name, type, breedID, DOB, true, weight, prospect));
+        List<CreatePetProspect> createPetPros= Lists.newArrayList(new CreatePetProspect(
+                name, type, breedID, DOB, true,gender,state,zip, weight, prospect));
         return createPetPros;
     }
 

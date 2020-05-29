@@ -22,7 +22,7 @@ Feature: Get prospect
 
   Examples:
   |type       |country|postalCode|state|email   |status_code|  emailId|
-  |INDIVIDUAL |USA    |95005     |PH   |random  |200        |  valid |
+  |INDIVIDUAL |US     |95005     |PH   |random  |200        |  valid |
 
 
   @FDP-179 @Negative
@@ -45,8 +45,8 @@ Feature: Get prospect
 
     Examples:
       |type       |country|postalCode|state|email   |status_code|emailId|
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |invalid |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |null    |
+      |INDIVIDUAL |US     |95005     |PH   |random  |400        |invalid |
+      |INDIVIDUAL |US     |95005     |PH   |random  |400        |null    |
 
 
 

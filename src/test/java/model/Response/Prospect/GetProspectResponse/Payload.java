@@ -10,6 +10,28 @@ public class Payload {
     private Integer recordCount;
     private List<Response> responses = null;
 
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Payload() {
+    }
+
+    /**
+     * 
+     * @param offset
+     * @param recordCount
+     * @param limit
+     * @param responses
+     */
+    public Payload(Integer offset, Integer limit, Integer recordCount, List<Response> responses) {
+        super();
+        this.offset = offset;
+        this.limit = limit;
+        this.recordCount = recordCount;
+        this.responses = responses;
+    }
+
     public Integer getOffset() {
         return offset;
     }

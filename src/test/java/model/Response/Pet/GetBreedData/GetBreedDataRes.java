@@ -1,8 +1,8 @@
 
-package model.Response.Prospect.GetProspectResponse;
+package model.Response.Pet.GetBreedData;
 
 
-public class GetProspectRes {
+public class GetBreedDataRes {
 
     private String correlationId;
     private Payload payload;
@@ -11,7 +11,7 @@ public class GetProspectRes {
      * No args constructor for use in serialization
      * 
      */
-    public GetProspectRes() {
+    public GetBreedDataRes() {
     }
 
     /**
@@ -19,7 +19,7 @@ public class GetProspectRes {
      * @param payload
      * @param correlationId
      */
-    public GetProspectRes(String correlationId, Payload payload) {
+    public GetBreedDataRes(String correlationId, Payload payload) {
         super();
         this.correlationId = correlationId;
         this.payload = payload;

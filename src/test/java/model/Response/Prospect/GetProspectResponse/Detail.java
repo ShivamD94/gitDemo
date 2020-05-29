@@ -13,6 +13,34 @@ public class Detail {
     private Boolean isPrimary;
     private List<Contact> contacts = null;
 
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Detail() {
+    }
+
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @param isPrimary
+     * @param name
+     * @param middleName
+     * @param email
+     * @param contacts
+     */
+    public Detail(String firstName, String middleName, String lastName, String name, String email, Boolean isPrimary, List<Contact> contacts) {
+        super();
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.name = name;
+        this.email = email;
+        this.isPrimary = isPrimary;
+        this.contacts = contacts;
+    }
+
     public String getFirstName() {
         return firstName;
     }

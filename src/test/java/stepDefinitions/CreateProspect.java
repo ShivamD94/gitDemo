@@ -6,7 +6,6 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import model.Response.Prospect.CreateProspectResponse.AddProspectResponse;
 import model.Response.Prospect.GetProspectResponse.GetProspectRes;
-import model.Response.Prospect.GetProspectResponse.Response;
 import org.junit.Assert;
 
 import java.io.IOException;
@@ -17,13 +16,13 @@ import static Utility.PropertyHolder.getProperty;
 import static Utility.PropertyHolder.setProperty;
 import static data.Prospect_TestData.addprospectpayload;
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
 
 public class CreateProspect extends TestBase {
 //@Steps
     @When("^User hit the POST prospect request$")
     public void user_hit_the_post_prospect_request(DataTable table) throws IOException {
         Map<String, String> testData = new HashMap<>(table.asMap(String.class, String.class));
+        setProperty("ProspectType",testData.get("type"));
         setProperty("Country",testData.get("country"));
         setProperty("PostalCode",testData.get("postalCode"));
         setProperty("State",testData.get("state"));
@@ -56,24 +55,10 @@ public class CreateProspect extends TestBase {
 
     @And("User verify the get prospect data")
     public void user_verify_the_get_prospect_data() {
-
         GetProspectRes getRes=response.getBody().as(GetProspectRes.class);
-        Assert.assertEquals(getProperty("postalcode"),response.jsonPath().getString("postalcode"));
-        Assert.assertEquals(getProperty("email"),response.jsonPath().getString("email"));
-        String firstname = getRes.getPayload().getResponses().get(0).getDetails().get(0).getFirstName();
-        setProperty("firstname", firstname);
-        String email = getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail();
-        setProperty("email", email);
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getId(),getProperty("ProspectID"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getCountry(),getProperty("Country"));
-        Assert.assertEquals(email,getProperty("email"));
-        Assert.assertEquals(firstname,getProperty("firstname"));
-        GetProspectRes res=response.as(GetProspectRes.class);
-        Response data=res.getPayload().getResponses().get(0);
-        Assert.assertEquals(getProperty("ProspectID"),data.getId());
-        Assert.assertEquals(getProperty("Country"),data.getCountry());
-        Assert.assertEquals(getProperty("ProspectName"),data.getDetails().get(0).getName());
-        Assert.assertEquals(getProperty("Email"),data.getDetails().get(0).getEmail());
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail(),getProperty("Email"));
     }
 
     @When("^User hit the GET prospect by email request (.+)$")
