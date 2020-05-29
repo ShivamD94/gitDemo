@@ -1,7 +1,7 @@
 @FDP-255
 Feature: Get Pet details by Attribute type
 
-  @FDP-255 @Positive
+  @FDP-255 @Positive @Ignore
   Scenario Outline: Get Pet details by Attribute type
 
     Given User has the valid endpoint "Pet-GetPetAttribute"

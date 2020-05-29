@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
  */
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features="src/test/java/features",plugin ={"json:reports/cucumber-report.json"},glue= {"stepDefinitions"}
-,tags={"@FDP-464"})
+,tags={"~@Ignore", "@FDP-816","@FDP-819"}
+//,tags={ "@FDP-397","@FDP-819"}
+)
 public class TestRunner{
 
 }
