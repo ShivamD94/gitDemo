@@ -8,6 +8,7 @@ import io.cucumber.datatable.DataTable;
 import model.Response.Quote.CreateQuoteResponse.AddQuoteResponse;
 import model.Response.Quote.CreateQuoteResponse.Customer;
 import model.Response.Quote.CreateQuoteResponse.Pet;
+import model.Response.Quote.SaveQuoteResponse.SaveQuoteRes;
 import org.junit.Assert;
 
 import java.io.IOException;
@@ -135,7 +136,9 @@ public class CreateQuote extends TestBase {
 
     @And("^User fetches AggregateQuoteID value$")
     public void user_fetches_aggregatequoteid_value(){
-
+        SaveQuoteRes res=response.as(SaveQuoteRes.class);
+        String aggregateQuote=res.getPayload().getResponses().get(0).getId();
+        setProperty("AggregateQuoteID",aggregateQuote);
     }
 
 }
