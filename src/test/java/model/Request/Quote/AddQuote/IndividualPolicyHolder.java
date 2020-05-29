@@ -1,8 +1,6 @@
 
-package model.Request.quote;
+package model.Request.Quote.AddQuote;
 
-
-import java.util.List;
 
 public class IndividualPolicyHolder {
 

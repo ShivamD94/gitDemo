@@ -3,7 +3,8 @@ package endpoints.quote;
 public enum quoteEndPoint {
 
 
-    AddQuote("fdp-quote-service/v1/quotes");
+    AddQuote("fdp-quote-service/v1/quotes"),
+    SaveQuote("fdp-quote-service/v1/quotes/aggregate");
 
     private String resource;
 

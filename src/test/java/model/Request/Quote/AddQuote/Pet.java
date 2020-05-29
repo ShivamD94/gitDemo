@@ -1,5 +1,5 @@
 
-package model.Request.quote;
+package model.Request.Quote.AddQuote;
 
 
 public class Pet {
