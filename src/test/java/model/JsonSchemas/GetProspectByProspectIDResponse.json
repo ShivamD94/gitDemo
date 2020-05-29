@@ -1,16 +1,146 @@
 {
-    "payload": {
-        "responses": [
-            {
-                "_id": "PET12344",
-                "_createdTimestamp": "2020-01-01'T'10:12:30XXX",
-                "links": [
-                    {
-                        "name": "self",
-                        "href": "/v1/prospectPets/PROS12344"
-                    }
-                ]
-            }
-        ]
-    }
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "correlationId": {
+            "type": "string"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "offset": {
+                    "type": "integer"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "recordCount": {
+                    "type": "integer"
+                },
+                "responses": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "details": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "firstName": {
+                                                    "type": "string"
+                                                },
+                                                "middleName": {
+                                                    "type": "string"
+                                                },
+                                                "lastName": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "isPrimary": {
+                                                    "type": "boolean"
+                                                },
+                                                "contacts": {
+                                                    "type": "array",
+                                                    "items": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "type": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "type",
+                                                                "value"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "firstName",
+                                                "middleName",
+                                                "lastName",
+                                                "name",
+                                                "email",
+                                                "isPrimary",
+                                                "contacts"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "customer": {
+                                    "type": "object"
+                                },
+                                "pets": {
+                                    "type": "array",
+                                    "items": {}
+                                },
+                                "quotes": {
+                                    "type": "array",
+                                    "items": {}
+                                },
+                                "links": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "href": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name",
+                                                "href"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "country",
+                                "details",
+                                "customer",
+                                "pets",
+                                "quotes",
+                                "links"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "offset",
+                "limit",
+                "recordCount",
+                "responses"
+            ]
+        }
+    },
+    "required": [
+        "correlationId",
+        "payload"
+    ]
 }

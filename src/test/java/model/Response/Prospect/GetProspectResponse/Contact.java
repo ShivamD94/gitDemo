@@ -6,7 +6,24 @@ public class Contact {
 
     private String type;
     private String value;
-    private Integer preference;
+
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Contact() {
+    }
+
+    /**
+     * 
+     * @param type
+     * @param value
+     */
+    public Contact(String type, String value) {
+        super();
+        this.type = type;
+        this.value = value;
+    }
 
     public String getType() {
         return type;
@@ -23,14 +40,5 @@ public class Contact {
     public void setValue(String value) {
         this.value = value;
     }
-
-    public Integer getPreference() {
-        return preference;
-    }
-
-    public void setPreference(Integer preference) {
-        this.preference = preference;
-    }
-
 
 }
