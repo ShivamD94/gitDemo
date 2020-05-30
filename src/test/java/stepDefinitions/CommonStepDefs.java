@@ -1,6 +1,7 @@
 package stepDefinitions;
 
-import Utility.*;
+import Utility.PropertyHolder;
+import Utility.UtilityMethods;
 import base.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -12,11 +13,12 @@ import endpoints.petProspect.petProspectEndPoint;
 import endpoints.prospect.prospectEndPoint;
 import endpoints.quote.quoteEndPoint;
 import endpoints.zip.ZipCode;
-import endpoints.quote.quoteEndPoint;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import model.Response.ErrorHandling.ErrorHandle;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
-import static Utility.PropertyHolder.*;
+import static Utility.PropertyHolder.getProperty;
 import static io.restassured.RestAssured.given;
 
 public class CommonStepDefs extends TestBase {
@@ -66,5 +68,16 @@ public class CommonStepDefs extends TestBase {
     public void user_validates_the_jsonschema_with_something(String schema) {
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(UtilityMethods.readResponseJsonSchema(schema)));
 		log.info("JSON Schema validated");
+    }
+
+    @And("^verify the error message for required fields$")
+    public void verify_the_error_message_for_required_fields(){
+        ErrorHandle res=response.as(ErrorHandle.class);
+        for(int i=0;i<res.getErrors().size();i++) {
+            String errorCode = res.getErrors().get(i).getErrorCode();
+            String errorMessage = res.getErrors().get(i).getMessage();
+            Assert.assertTrue("Error message does not match for Error Array "+i,
+                    errorMessage.contains("Required field") && errorMessage.contains("is missing or incorrect"));
+        }
     }
 }
