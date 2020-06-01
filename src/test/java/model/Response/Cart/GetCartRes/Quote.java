@@ -5,34 +5,18 @@ import java.util.List;
 
 public class Quote {
 
-    private Integer annualDeductibleDollarAmount;
-    private Integer annualPolicyMaximumLimit;
     private Boolean chosenQuote;
-    private Integer coPayPercentage;
-    private String deductibleType;
-    private String id;
-    private Boolean isCustom;
-    private List<Integer> premium = null;
     private String priceAffinityType;
-    private List<Integer> taxAndServicePremium = null;
+    private Boolean isCustom;
+    private String id;
+    private String deductibleType;
+    private String annualPolicyMaximumLimit;
+    private Double coPayPercentage;
+    private Double annualDeductibleDollarAmount;
+    private List<Double> premium = null;
+    private List<Double> taxAndServicePremium = null;
     private UpsellData upsellData;
     private String version;
-
-    public Integer getAnnualDeductibleDollarAmount() {
-        return annualDeductibleDollarAmount;
-    }
-
-    public void setAnnualDeductibleDollarAmount(Integer annualDeductibleDollarAmount) {
-        this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
-    }
-
-    public Integer getAnnualPolicyMaximumLimit() {
-        return annualPolicyMaximumLimit;
-    }
-
-    public void setAnnualPolicyMaximumLimit(Integer annualPolicyMaximumLimit) {
-        this.annualPolicyMaximumLimit = annualPolicyMaximumLimit;
-    }
 
     public Boolean getChosenQuote() {
         return chosenQuote;
@@ -40,46 +24,6 @@ public class Quote {
 
     public void setChosenQuote(Boolean chosenQuote) {
         this.chosenQuote = chosenQuote;
-    }
-
-    public Integer getCoPayPercentage() {
-        return coPayPercentage;
-    }
-
-    public void setCoPayPercentage(Integer coPayPercentage) {
-        this.coPayPercentage = coPayPercentage;
-    }
-
-    public String getDeductibleType() {
-        return deductibleType;
-    }
-
-    public void setDeductibleType(String deductibleType) {
-        this.deductibleType = deductibleType;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Boolean getIsCustom() {
-        return isCustom;
-    }
-
-    public void setIsCustom(Boolean isCustom) {
-        this.isCustom = isCustom;
-    }
-
-    public List<Integer> getPremium() {
-        return premium;
-    }
-
-    public void setPremium(List<Integer> premium) {
-        this.premium = premium;
     }
 
     public String getPriceAffinityType() {
@@ -90,11 +34,67 @@ public class Quote {
         this.priceAffinityType = priceAffinityType;
     }
 
-    public List<Integer> getTaxAndServicePremium() {
+    public Boolean getIsCustom() {
+        return isCustom;
+    }
+
+    public void setIsCustom(Boolean isCustom) {
+        this.isCustom = isCustom;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDeductibleType() {
+        return deductibleType;
+    }
+
+    public void setDeductibleType(String deductibleType) {
+        this.deductibleType = deductibleType;
+    }
+
+    public String getAnnualPolicyMaximumLimit() {
+        return annualPolicyMaximumLimit;
+    }
+
+    public void setAnnualPolicyMaximumLimit(String annualPolicyMaximumLimit) {
+        this.annualPolicyMaximumLimit = annualPolicyMaximumLimit;
+    }
+
+    public Double getCoPayPercentage() {
+        return coPayPercentage;
+    }
+
+    public void setCoPayPercentage(Double coPayPercentage) {
+        this.coPayPercentage = coPayPercentage;
+    }
+
+    public Double getAnnualDeductibleDollarAmount() {
+        return annualDeductibleDollarAmount;
+    }
+
+    public void setAnnualDeductibleDollarAmount(Double annualDeductibleDollarAmount) {
+        this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
+    }
+
+    public List<Double> getPremium() {
+        return premium;
+    }
+
+    public void setPremium(List<Double> premium) {
+        this.premium = premium;
+    }
+
+    public List<Double> getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Integer> taxAndServicePremium) {
+    public void setTaxAndServicePremium(List<Double> taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 

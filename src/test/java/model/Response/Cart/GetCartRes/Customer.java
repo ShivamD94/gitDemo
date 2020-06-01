@@ -6,9 +6,9 @@ import java.util.List;
 public class Customer {
 
     private String customerId;
-    private List<Detail> details = null;
     private Boolean isPolicyHolder;
     private Boolean isPreviousPolicyholder;
+    private List<Detail> details = null;
     private List<Pet> pets = null;
 
     public String getCustomerId() {
@@ -17,14 +17,6 @@ public class Customer {
 
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
-    }
-
-    public List<Detail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<Detail> details) {
-        this.details = details;
     }
 
     public Boolean getIsPolicyHolder() {
@@ -41,6 +33,14 @@ public class Customer {
 
     public void setIsPreviousPolicyholder(Boolean isPreviousPolicyholder) {
         this.isPreviousPolicyholder = isPreviousPolicyholder;
+    }
+
+    public List<Detail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<Detail> details) {
+        this.details = details;
     }
 
     public List<Pet> getPets() {

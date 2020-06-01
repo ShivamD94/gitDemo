@@ -3,6 +3,7 @@ package base;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -44,6 +45,7 @@ public class TestBase {
 
             reqSpec = new RequestSpecBuilder().setBaseUri(getKeyValue("BaseURI"))
                     .addFilter(RequestLoggingFilter.logRequestTo(apilogs))
+					.addFilter(ResponseLoggingFilter.logResponseTo(apilogs))
                     .setContentType(ContentType.JSON).addHeader("X-CorrelationId","45677889").build();
             log.info("API Request Specification created");
             return reqSpec;

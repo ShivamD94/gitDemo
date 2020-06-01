@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "correlationId": {
+            "type": "string"
+        },
+        "payload": {
+            "type": "object",
+            "properties": {
+                "responses": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "createTimestamp": {
+                                    "type": "string"
+                                },
+                                "links": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "href": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name",
+                                                "href"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "createTimestamp",
+                                "links"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "responses"
+            ]
+        }
+    },
+    "required": [
+        "correlationId",
+        "payload"
+    ]
+}

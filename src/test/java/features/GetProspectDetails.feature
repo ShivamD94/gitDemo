@@ -22,7 +22,7 @@
 
     Examples:
     |type       |country|postalCode|state|email   |status_code|
-    |INDIVIDUAL |USA    |95005     |PH   |random  |201        |
+    |INDIVIDUAL |US     |95005     |PH   |random  |201        |
 
     @FDP-178 @Negative
     Scenario Outline: Get prospect by PROSPECT ID
@@ -44,4 +44,4 @@
 
     Examples:
     |type       |country|postalCode|state|email   |status_code|
-    |INDIVIDUAL |USA    |95005     |PH   |random  |201        |
+    |INDIVIDUAL |US     |95005     |PH   |random  |201        |

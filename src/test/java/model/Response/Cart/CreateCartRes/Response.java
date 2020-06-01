@@ -6,7 +6,7 @@ import java.util.List;
 public class Response {
 
     private String id;
-    private String createdTimestamp;
+    private String createTimestamp;
     private List<Link> links = null;
 
     public String getId() {
@@ -17,12 +17,12 @@ public class Response {
         this.id = id;
     }
 
-    public String getCreatedTimestamp() {
-        return createdTimestamp;
+    public String getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreatedTimestamp(String createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    public void setCreateTimestamp(String createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 
     public List<Link> getLinks() {

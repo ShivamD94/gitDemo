@@ -7,13 +7,39 @@ public class Response {
 
     private String id;
     private String country;
-    private String postalCode;
-    private String state;
     private List<Detail> details = null;
     private Customer customer;
-    private List<Pet> pets = null;
-    private List<Quote> quotes = null;
-    private List<Link___> links = null;
+    private List<Object> pets = null;
+    private List<Object> quotes = null;
+    private List<Link> links = null;
+
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Response() {
+    }
+
+    /**
+     * 
+     * @param pets
+     * @param country
+     * @param details
+     * @param links
+     * @param id
+     * @param customer
+     * @param quotes
+     */
+    public Response(String id, String country, List<Detail> details, Customer customer, List<Object> pets, List<Object> quotes, List<Link> links) {
+        super();
+        this.id = id;
+        this.country = country;
+        this.details = details;
+        this.customer = customer;
+        this.pets = pets;
+        this.quotes = quotes;
+        this.links = links;
+    }
 
     public String getId() {
         return id;
@@ -29,22 +55,6 @@ public class Response {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public List<Detail> getDetails() {
@@ -63,27 +73,27 @@ public class Response {
         this.customer = customer;
     }
 
-    public List<Pet> getPets() {
+    public List<Object> getPets() {
         return pets;
     }
 
-    public void setPets(List<Pet> pets) {
+    public void setPets(List<Object> pets) {
         this.pets = pets;
     }
 
-    public List<Quote> getQuotes() {
+    public List<Object> getQuotes() {
         return quotes;
     }
 
-    public void setQuotes(List<Quote> quotes) {
+    public void setQuotes(List<Object> quotes) {
         this.quotes = quotes;
     }
 
-    public List<Link___> getLinks() {
+    public List<Link> getLinks() {
         return links;
     }
 
-    public void setLinks(List<Link___> links) {
+    public void setLinks(List<Link> links) {
         this.links = links;
     }
 

@@ -1,79 +1,77 @@
-@FDP-397
-Feature: Create new pet prospect
+@FDP-816
+Feature: Create new prospect pet
 
-  @FDP-397 @Positive
-  Scenario Outline: Create a pet corresponding to a prospect in platform
-
+  Background:Pre requisite for create prospect pet
     Given User has the valid endpoint "Prospect-AddProspect"
     When User hit the POST prospect request
       | Key       | Value       |
-      | type      | <type>      |
-      | country   | <country>   |
-      | postalCode| <postalCode>|
-      | state     | <state>     |
-      | email     | <email>     |
+      | type      | INDIVIDUAL  |
+      | country   | US          |
+      | postalCode| 95005       |
+      | state     | PH          |
+      | email     | random      |
     Then verify the status code as 201
     And User fetches ProspectID and timestamp values
-    Given User has the valid endpoint "Pet-GetPetAttribute"
-    When User hit the GET petBreed request for petType
-    Then verify the status code as 200
-    And User fetch the BreedType and BreedID of <petType> pet
 
+
+  @FDP-816 @Positive
+    Scenario Outline: Create a prospect pet with valid data
+
+    Given User has the valid endpoint "Pet-GetPetBreed"
+    When User hit the GET pet Breed data request for <petType> and <country>
+    Then verify the status code as 200
+    And User fetch the BreedID
     Given User has the valid endpoint "PetProspect-PostPetProspect"
     When User hit the POST petProspect request
-      | Key       | Value    |
-      | name      | <name>   |
-      | type      | <petType>|
-      | DOB       | <DOB>    |
-      | breed     | <breedID>    |
-      | prospect  | <prospectID> |
+      | Key       | Value       |
+      | name      | <name>      |
+      | type      | <petType>   |
+      | DOB       | <DOB>       |
+      | breed     | <breedID>   |
+      | prospect  | <prospectID>|
+      | postalCode| <postalCode>|
+      | state     | <state>     |
+      | gender    | <gender>    |
     Then verify the status code as <status_code>
     And User validates the jsonSchema with "PostPetProspectResponse"
     And User fetches PetID and timestamp values
 
     Examples:
-      |type       |country|postalCode|state|email   |status_code|name        |petType|DOB       |breedID|prospectID|
-      |INDIVIDUAL |USA    |95005     |PH   |random  |200        |Martin      |dog    |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |200        |Martin      |cat    |2020-01-01|valid  |valid     |
+     |country|postalCode|state|status_code|name        |petType|DOB       |breedID|prospectID|gender|
+     |US     |95005     |PH   |200        |Martin      |DOG    |2020-01-01|valid  |valid     |MALE  |
+     |US     |95005     |PH   |200        |Martin      |CAT    |2020-01-01|valid  |valid     |FEMALE|
 
-  @FDP-397 @Negative
-  Scenario Outline: Create a pet corresponding to a prospect in platform
+  @FDP-816 @Negative
+  Scenario Outline: Create a prospect pet with invalid data
 
-    Given User has the valid endpoint "Prospect-AddProspect"
-    When User hit the POST prospect request
-      | Key       | Value       |
-      | type      | <type>      |
-      | country   | <country>   |
-      | postalCode| <postalCode>|
-      | state     | <state>     |
-      | email     | <email>     |
-    Then verify the status code as 201
-    And User fetches ProspectID and timestamp values
-    Given User has the valid endpoint "Pet-GetPetAttribute"
-    When User hit the GET petBreed request for petType
+    Given User has the valid endpoint "Pet-GetPetBreed"
+    When User hit the GET pet Breed data request for DOG and <country>
     Then verify the status code as 200
-    And User fetch the BreedType and BreedID of the pet
-
+    And User fetch the BreedID
     Given User has the valid endpoint "PetProspect-PostPetProspect"
     When User hit the POST petProspect request
       | Key       | Value        |
-      | type      | <name>       |
-      | country   | <petType>    |
+      | name      | <name>       |
+      | type      | <petType>    |
       | DOB       | <DOB>        |
       | breed     | <breedID>    |
       | prospect  | <prospectID> |
+      | postalCode| <postalCode> |
+      | state     | <state>      |
+      | gender    | <gender>     |
     Then verify the status code as <status_code>
 
-    Examples:
-      |type       |country|postalCode|state|email   |status_code|name        |petType|DOB       |breedID|prospectID|
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |            |dog    |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |!@          |dog    |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |       |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |rat    |2020-01-01|valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |          |valid  |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |2020-13-13|valid  |valid     |
 
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |2020-01-01|null   |valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |2020-01-01|invalid|valid     |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |2020-01-01|valid  |null      |
-      |INDIVIDUAL |USA    |95005     |PH   |random  |400        |Martin      |dog    |2020-01-01|valid  |invalid   |
+    Examples:
+      |country|postalCode|state|status_code|name        |petType|DOB       |breedID|prospectID|gender|
+      |US     |95005     |PH   |400        |            |DOG    |2020-01-01|valid  |valid     |MALE  |
+      |US     |95005     |PH   |400        |Martin      |RAT    |2020-01-01|valid  |valid     |MALE  |
+      |US     |95005     |PH   |400        |Martin      |DOG    |          |valid  |valid     |MALE  |
+      |US     |95005     |PH   |400        |Martin      |DOG    |2020-13-13|valid  |valid     |MALE  |
+
+      |US     |95005     |PH   |400        |Martin      |DOG    |2020-01-01|null   |valid     |MALE  |
+      |US     |95005     |PH   |400        |Martin      |DOG    |2020-01-01|valid  |null      |MALE  |
+      |US     |95005     |PH   |400        |Martin      |DOG    |2020-01-01|valid  |valid     |female|
+
+      |US     |          |PH   |400        |Martin      |DOG    |2020-01-01|valid  |valid     |MALE  |
+      |US     |95005     |     |400        |Martin      |DOG    |2020-01-01|valid  |valid     |MALE  |

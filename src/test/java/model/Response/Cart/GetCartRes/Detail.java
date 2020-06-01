@@ -5,10 +5,18 @@ import java.util.List;
 
 public class Detail {
 
+    private String primary;
     private String email;
-    private List<Link> links = null;
     private String name;
-    private Boolean primary;
+    private List<Link> links = null;
+
+    public String getPrimary() {
+        return primary;
+    }
+
+    public void setPrimary(String primary) {
+        this.primary = primary;
+    }
 
     public String getEmail() {
         return email;
@@ -16,14 +24,6 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class Detail {
         this.name = name;
     }
 
-    public Boolean getPrimary() {
-        return primary;
+    public List<Link> getLinks() {
+        return links;
     }
 
-    public void setPrimary(Boolean primary) {
-        this.primary = primary;
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 
 }

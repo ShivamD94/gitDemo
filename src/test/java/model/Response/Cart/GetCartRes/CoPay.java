@@ -5,31 +5,31 @@ import java.util.List;
 
 public class CoPay {
 
-    private Integer percentage;
-    private List<Integer> premium = null;
-    private List<Integer> taxAndServicePremium = null;
+    private Double percentage;
+    private List<Double> premium = null;
+    private List<Double> taxAndServicePremium = null;
 
-    public Integer getPercentage() {
+    public Double getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(Integer percentage) {
+    public void setPercentage(Double percentage) {
         this.percentage = percentage;
     }
 
-    public List<Integer> getPremium() {
+    public List<Double> getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Integer> premium) {
+    public void setPremium(List<Double> premium) {
         this.premium = premium;
     }
 
-    public List<Integer> getTaxAndServicePremium() {
+    public List<Double> getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Integer> taxAndServicePremium) {
+    public void setTaxAndServicePremium(List<Double> taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 

@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "payload": {
+            "type": "object",
+            "properties": {
+                "responses": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "breedId": {
+                                    "type": "string"
+                                },
+                                "label": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "breedId",
+                                "label"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "breedId": {
+                                    "type": "string"
+                                },
+                                "label": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "breedId",
+                                "label"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "responses"
+            ]
+        }
+    },
+    "required": [
+        "payload"
+    ]
+}

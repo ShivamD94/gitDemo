@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
+import model.Response.Pet.GetBreedData.GetBreedDataRes;
 import model.Response.Pet.GetPetBreed.GetPetBreedRes;
 import net.thucydides.core.annotations.Step;
 
@@ -21,7 +22,6 @@ public class CreatePet extends TestBase {
     @When("^User hit the GET petBreed request for (.+)$")
     public void user_hit_the_get_petbreed_request_for(String type) throws IOException {
         String URI=getProperty("URI").concat("/"+type);
-        System.out.println(URI);
         reqSpec = given().spec(requestSpesification());
         response = reqSpec.when().get(URI);
 
@@ -48,13 +48,10 @@ public class CreatePet extends TestBase {
 
         //scenario coverage for breedID - valid/null/invalid
         if(testData.get("breed").equalsIgnoreCase("valid")){
-                breedID=getProperty("BreedID");
+                breedID=getProperty("PetBreed");
         }
         else if(testData.get("breed").equalsIgnoreCase("null")){
             breedID=null;
-        }
-        else if(testData.get("breed").equalsIgnoreCase("invalid")){
-            breedID="123";
         }
         else breedID=testData.get("breed");
 
@@ -62,14 +59,11 @@ public class CreatePet extends TestBase {
         if(testData.get("prospect").equalsIgnoreCase("valid")){
             prospectID=getProperty("ProspectID");
         }
-        else if(testData.get("prospect").equalsIgnoreCase("invalid")){
-            prospectID="12";
-        }
         else if(testData.get("prospect").equalsIgnoreCase("null")){
             prospectID=null;
         }
         reqSpec = given().spec(requestSpesification()).body(addPetProspectpayload(testData.get("name"),testData.get("type"),
-        breedID,testData.get("DOB"),prospectID));
+        breedID,testData.get("DOB"),testData.get("state"),testData.get("postalCode"),testData.get("gender"),prospectID));
         response = reqSpec.when().post(getProperty("URI"));
     }
 
@@ -80,5 +74,17 @@ public class CreatePet extends TestBase {
         String timeStamp=res.getPayload().getResponses().get(0).getCreatedTimestamp();
         setProperty("PetID",PetID);
         setProperty("PetTimeStamp",timeStamp);
+    }
+
+    @When("^User hit the GET pet Breed data request for (.+) and (.+)$")
+    public void user_hit_the_get_pet_breed_data_request_for_and(String type, String country) throws IOException {
+        reqSpec = given().spec(requestSpesification()).pathParam("petType",type).queryParam("countryCode",country);
+        response = reqSpec.when().get(getProperty("URI"));
+    }
+
+    @And("^User fetch the BreedID$")
+    public void user_fetch_the_breedid(){
+        GetBreedDataRes res=response.as(GetBreedDataRes.class);
+        setProperty("PetBreed",res.getPayload().getResponses().get(0).getBreedId());
     }
 }
