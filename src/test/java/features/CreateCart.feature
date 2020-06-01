@@ -76,7 +76,7 @@ Feature: Create new cart
 
     Examples:
       |customerID|petID  |rateMatrix|quotes |
-      | invalid  |valid  |valid     |valid  |
-      | valid    |invalid|valid     |valid  |
+      | abc      |valid  |valid     |valid  |
+      | valid    |       |valid     |valid  |
       | valid    |valid  |invalid   |valid  |
       | valid    |valid  |valid     |invalid|

@@ -1,11 +1,13 @@
 package stepDefinitions;
 
-import Utility.*;
+import Utility.PropertyHolder;
+import Utility.UtilityMethods;
 import base.TestBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import endpoints.cart.CartEndpoint;
 import endpoints.pet.PetEndpoint;
 import endpoints.petProspect.petProspectEndPoint;
 import endpoints.prospect.prospectEndPoint;
@@ -16,7 +18,7 @@ import model.Response.ErrorHandling.ErrorHandle;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
-import static Utility.PropertyHolder.*;
+import static Utility.PropertyHolder.getProperty;
 import static io.restassured.RestAssured.given;
 
 public class CommonStepDefs extends TestBase {
@@ -76,6 +78,27 @@ public class CommonStepDefs extends TestBase {
             String errorMessage = res.getErrors().get(i).getMessage();
             Assert.assertTrue("Error message does not match for Error Array "+i,
                     errorMessage.contains("Required field") && errorMessage.contains("is missing or incorrect"));
+        }
+    }
+
+    @And("^verify the error message for (.+)$")
+    public void verify_the_error_message_for(String messagetype){
+        ErrorHandle res=response.as(ErrorHandle.class);
+        for(int i=0;i<res.getErrors().size();i++) {
+            String errorCode = res.getErrors().get(i).getErrorCode();
+            String ActualMessage = res.getErrors().get(i).getMessage();
+            if(messagetype.equalsIgnoreCase("REQUIRED")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Required field") && ActualMessage.contains("is missing or incorrect"));
+            }
+            else if(messagetype.equalsIgnoreCase("path param")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Mandatory path parameter") && ActualMessage.contains("is missing or invalid"));
+            }
+            else if(messagetype.equalsIgnoreCase("query param")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Mandatory query parameter") && ActualMessage.contains("is missing or invalid"));
+            }
         }
     }
 }

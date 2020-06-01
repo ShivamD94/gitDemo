@@ -6,7 +6,8 @@ package endpoints.cart;
 public enum CartEndpoint {
 
     AddCart("fdp-cart-service/v1/carts"),
-    GetCart("fdp-cart-service/v1/carts/{emailId}");
+    GetCart("fdp-cart-service/v1/carts/{emailId}"),
+    UpdateCart("fdp-cart-service/v1/carts/{cartId}");
     private String resource;
 
     CartEndpoint(String resource)
