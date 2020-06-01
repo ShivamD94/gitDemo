@@ -82,20 +82,20 @@ Feature: Save quote
       |petWeight               |<petWeight>               |
 
     Then verify the status code as 400
-    And verify the error message for required fields
+    And verify the error message for <MessageType>
 
     Examples:
-      |petActualDob|petSuggestedDob|petName|breedId|gender|state|country|zip |customerId|petId|quoteId|priceAffinityType|deductibleType|annualPolicyMaximumLimit|premium|taxAndPremium|petAge|petWeightUnit|petWeight|
-      |            |               |       |       |      |     |       |    |          |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |     |valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|       |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |                 |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |              |valid                   |valid  |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |       |valid        |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |             |valid |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |      |valid        |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |             |valid    |
-      |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |         |
+      |MessageType|petActualDob|petSuggestedDob|petName|breedId|gender|state|country|zip |customerId|petId|quoteId|priceAffinityType|deductibleType|annualPolicyMaximumLimit|premium|taxAndPremium|petAge|petWeightUnit|petWeight|
+      |required   |            |               |       |       |      |     |       |    |          |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |     |valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|       |valid            |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |                 |valid         |valid                   |valid  |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |              |valid                   |valid  |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |       |valid        |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |             |valid |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |      |valid        |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |             |valid    |
+      |required   |            |               |       |       |      |     |       |    | valid    |valid|valid  |valid            |valid         |valid                   |valid  |valid        |valid |valid        |         |
 
 
 
