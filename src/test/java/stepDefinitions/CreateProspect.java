@@ -59,6 +59,7 @@ public class CreateProspect extends TestBase {
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getId(),getProperty("ProspectID"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getCountry(),getProperty("Country"));
         Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getEmail(),getProperty("Email"));
+        Assert.assertEquals(getRes.getPayload().getResponses().get(0).getDetails().get(0).getName(),getProperty("CustomerName"));
     }
 
     @When("^User hit the GET prospect by email request (.+)$")

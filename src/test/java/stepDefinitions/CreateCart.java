@@ -133,7 +133,7 @@ public class CreateCart extends TestBase {
         Response validate=res.getPayload().getResponses().get(0);
         assertEquals(getProperty("CartID"),validate.getId());
         assertEquals(getProperty("CustomerID"),validate.getCustomer().getCustomerId());
-        assertEquals(getProperty("CustomerEmail"),validate.getCustomer().getDetails().get(0).getEmail());
+        assertEquals(getProperty("Email"),validate.getCustomer().getDetails().get(0).getEmail());
         assertEquals(getProperty("ProspectPetID"),validate.getCustomer().getPets().get(0).getId());
 //        assertEquals(quote,validate.getCustomer().getPets().get(0).getQuotes().get(0));
 //        assertEquals(RateMatrix.toString(),validate.getCustomer().getPets().get(0).getRateMatrix().toString());

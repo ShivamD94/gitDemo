@@ -2,6 +2,7 @@
 package model.Request.Prospect.CreateProspect;
 
 import java.util.List;
+import static Utility.PropertyHolder.*;
 
 public class Detail {
 
@@ -31,6 +32,7 @@ public class Detail {
         this.middleName = middleName;
         this.lastName = lastName;
         this.name = firstName+lastName;
+        setProperty("CustomerName",this.name);
         this.email = email;
         this.isPrimary = isPrimary;
         this.contacts = contacts;
