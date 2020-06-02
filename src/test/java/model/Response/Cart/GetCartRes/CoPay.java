@@ -1,13 +1,14 @@
 
 package model.Response.Cart.GetCartRes;
 
-import java.util.List;
+import model.Response.Quote.CreateQuoteResponse.Premium;
+import model.Response.Quote.CreateQuoteResponse.TaxAndServicePremium;
 
 public class CoPay {
 
     private Double percentage;
-    private List<Double> premium = null;
-    private List<Double> taxAndServicePremium = null;
+    private Premium premium;
+    private TaxAndServicePremium taxAndServicePremium;
 
     public Double getPercentage() {
         return percentage;
@@ -17,19 +18,19 @@ public class CoPay {
         this.percentage = percentage;
     }
 
-    public List<Double> getPremium() {
+    public Premium getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Double> premium) {
+    public void setPremium(Premium premium) {
         this.premium = premium;
     }
 
-    public List<Double> getTaxAndServicePremium() {
+    public TaxAndServicePremium getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Double> taxAndServicePremium) {
+    public void setTaxAndServicePremium(TaxAndServicePremium taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 

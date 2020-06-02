@@ -1,13 +1,11 @@
 
 package model.Request.Quote.SaveQuote;
 
-import java.util.List;
-
 public class CoPay {
 
     private Integer percentage;
-    private List<Integer> premium = null;
-    private List<Integer> taxAndServicePremium = null;
+    private Premium premium = null;
+    private TaxAndServicePremium taxAndServicePremium = null;
 
     /**
      * No args constructor for use in serialization
@@ -22,7 +20,7 @@ public class CoPay {
      * @param percentage
      * @param taxAndServicePremium
      */
-    public CoPay(Integer percentage, List<Integer> premium, List<Integer> taxAndServicePremium) {
+    public CoPay(Integer percentage, Premium premium, TaxAndServicePremium taxAndServicePremium) {
         super();
         this.percentage = percentage;
         this.premium = premium;
@@ -37,19 +35,19 @@ public class CoPay {
         this.percentage = percentage;
     }
 
-    public List<Integer> getPremium() {
+    public Premium getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Integer> premium) {
+    public void setPremium(Premium premium) {
         this.premium = premium;
     }
 
-    public List<Integer> getTaxAndServicePremium() {
+    public TaxAndServicePremium getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Integer> taxAndServicePremium) {
+    public void setTaxAndServicePremium(TaxAndServicePremium taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 

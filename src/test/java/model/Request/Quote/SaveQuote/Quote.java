@@ -1,7 +1,8 @@
 
 package model.Request.Quote.SaveQuote;
 
-import java.util.List;
+import model.Response.Quote.CreateQuoteResponse.Premium_;
+import model.Response.Quote.CreateQuoteResponse.TaxAndServicePremium_;
 
 public class Quote {
 
@@ -14,8 +15,8 @@ public class Quote {
     private Double annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
-    private List<Double> premium = null;
-    private List<Double> taxAndServicePremium = null;
+    private Premium_ premium;
+    private TaxAndServicePremium_ taxAndServicePremium;
     private UpsellData upsellData;
 
     /**
@@ -40,7 +41,7 @@ public class Quote {
      * @param upsellData
      * @param version
      */
-    public Quote(String id, String version, Boolean chosenQuote, String priceAffinityType, Boolean isCustom, String deductibleType, Double annualPolicyMaximumLimit, Double coPayPercentage, Double annualDeductibleDollarAmount, List<Double> premium, List<Double> taxAndServicePremium, UpsellData upsellData) {
+    public Quote(String id, String version, Boolean chosenQuote, String priceAffinityType, Boolean isCustom, String deductibleType, Double annualPolicyMaximumLimit, Double coPayPercentage, Double annualDeductibleDollarAmount, Premium_ premium, TaxAndServicePremium_ taxAndServicePremium, UpsellData upsellData) {
         super();
         this.id = id;
         this.version = version;
@@ -128,21 +129,22 @@ public class Quote {
         this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
     }
 
-    public List<Double> getPremium() {
+    public Premium_ getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Double> premium) {
+    public void setPremium(Premium_ premium) {
         this.premium = premium;
     }
 
-    public List<Double> getTaxAndServicePremium() {
+    public TaxAndServicePremium_ getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Double> taxAndServicePremium) {
+    public void setTaxAndServicePremium(TaxAndServicePremium_ taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
+
 
     public UpsellData getUpsellData() {
         return upsellData;

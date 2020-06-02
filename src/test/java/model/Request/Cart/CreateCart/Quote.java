@@ -1,7 +1,8 @@
 
 package model.Request.Cart.CreateCart;
 
-import java.util.List;
+import model.Response.Quote.CreateQuoteResponse.Premium_;
+import model.Response.Quote.CreateQuoteResponse.TaxAndServicePremium_;
 
 public class Quote {
 
@@ -14,13 +15,13 @@ public class Quote {
     private String annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
-    private List<Double> premium = null;
-    private List<Double> taxAndServicePremium = null;
+    private Premium_ premium;
+    private TaxAndServicePremium_ taxAndServicePremium;
     private UpsellData upsellData;
 
     public Quote(String id,String version,Boolean chosenQuote,String priceAffinityType,Boolean isCustom,String deductibleType,
                  String annualPolicyMaximumLimit,Double coPayPercentage,Double annualDeductibleDollarAmount,
-                 List<Double> premium,List<Double> taxAndServicePremium,UpsellData upsellData){
+                 Premium_ premium,TaxAndServicePremium_ taxAndServicePremium,UpsellData upsellData){
         this.id=id;
         this.version=version;
         this.chosenQuote=chosenQuote;
@@ -62,10 +63,10 @@ public class Quote {
     public Double getAnnualDeductibleDollarAmount() {
         return annualDeductibleDollarAmount;
     }
-    public List<Double> getPremium() {
+    public Premium_ getPremium() {
         return premium;
     }
-    public List<Double> getTaxAndServicePremium() {
+    public TaxAndServicePremium_ getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
     public UpsellData getUpsellData() {

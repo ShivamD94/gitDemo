@@ -1,7 +1,8 @@
 
 package model.Response.Cart.GetCartRes;
 
-import java.util.List;
+import model.Response.Quote.CreateQuoteResponse.Premium_;
+import model.Response.Quote.CreateQuoteResponse.TaxAndServicePremium_;
 
 public class Quote {
 
@@ -13,8 +14,8 @@ public class Quote {
     private String annualPolicyMaximumLimit;
     private Double coPayPercentage;
     private Double annualDeductibleDollarAmount;
-    private List<Double> premium = null;
-    private List<Double> taxAndServicePremium = null;
+    private Premium_ premium;
+    private TaxAndServicePremium_ taxAndServicePremium;
     private UpsellData upsellData;
     private String version;
 
@@ -82,19 +83,19 @@ public class Quote {
         this.annualDeductibleDollarAmount = annualDeductibleDollarAmount;
     }
 
-    public List<Double> getPremium() {
+    public Premium_ getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Double> premium) {
+    public void setPremium(Premium_ premium) {
         this.premium = premium;
     }
 
-    public List<Double> getTaxAndServicePremium() {
+    public TaxAndServicePremium_ getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Double> taxAndServicePremium) {
+    public void setTaxAndServicePremium(TaxAndServicePremium_ taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 
