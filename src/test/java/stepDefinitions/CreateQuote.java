@@ -16,10 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static Utility.PropertyHolder.getProperty;
-import static Utility.PropertyHolder.setProperty;
-import static data.Quote_TestData.addquotepayload;
-import static data.Quote_TestData.saveQuotePayload;
+import static Utility.PropertyHolder.*;
+import static data.Quote_TestData.*;
 import static io.restassured.RestAssured.given;
 
 public class CreateQuote extends TestBase {

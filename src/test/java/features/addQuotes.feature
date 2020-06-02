@@ -29,7 +29,7 @@ Feature: Create quote with customer and pet
     And User fetches PetID and timestamp values
 
 
-  @FDP-352 @FDP-358 @FDP-895 @Positive @Prospect
+  @FDP-352 @FDP-358 @FDP-895 @Positive
   Scenario Outline: Create a quote for new/existing customers
 
     Given User has the valid endpoint "Quote-AddQuote"
