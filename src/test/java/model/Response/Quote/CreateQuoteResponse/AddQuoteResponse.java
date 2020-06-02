@@ -1,5 +1,5 @@
-package model.Response.Quote.CreateQuoteResponse;
 
+package model.Response.Quote.CreateQuoteResponse;
 
 
 public class AddQuoteResponse {
@@ -22,4 +22,5 @@ public class AddQuoteResponse {
     public void setPayload(Payload payload) {
         this.payload = payload;
     }
+
 }

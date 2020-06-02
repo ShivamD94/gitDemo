@@ -1,13 +1,12 @@
 
 package model.Response.Quote.CreateQuoteResponse;
 
-import java.util.List;
 
 public class CoPay {
 
     private Integer percentage;
-    private List<Integer> premium = null;
-    private List<Integer> taxAndServicePremium = null;
+    private Premium premium;
+    private TaxAndServicePremium taxAndServicePremium;
 
     public Integer getPercentage() {
         return percentage;
@@ -17,19 +16,19 @@ public class CoPay {
         this.percentage = percentage;
     }
 
-    public List<Integer> getPremium() {
+    public Premium getPremium() {
         return premium;
     }
 
-    public void setPremium(List<Integer> premium) {
+    public void setPremium(Premium premium) {
         this.premium = premium;
     }
 
-    public List<Integer> getTaxAndServicePremium() {
+    public TaxAndServicePremium getTaxAndServicePremium() {
         return taxAndServicePremium;
     }
 
-    public void setTaxAndServicePremium(List<Integer> taxAndServicePremium) {
+    public void setTaxAndServicePremium(TaxAndServicePremium taxAndServicePremium) {
         this.taxAndServicePremium = taxAndServicePremium;
     }
 
