@@ -70,14 +70,24 @@ public class CommonStepDefs extends TestBase {
 		log.info("JSON Schema validated");
     }
 
-    @And("^verify the error message for required fields$")
-    public void verify_the_error_message_for_required_fields(){
+    @And("^verify the error message for (.+)$")
+    public void verify_the_error_message_for(String messagetype){
         ErrorHandle res=response.as(ErrorHandle.class);
         for(int i=0;i<res.getErrors().size();i++) {
             String errorCode = res.getErrors().get(i).getErrorCode();
-            String errorMessage = res.getErrors().get(i).getMessage();
-            Assert.assertTrue("Error message does not match for Error Array "+i,
-                    errorMessage.contains("Required field") && errorMessage.contains("is missing or incorrect"));
+            String ActualMessage = res.getErrors().get(i).getMessage();
+            if(messagetype.equalsIgnoreCase("REQUIRED")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Required field") && ActualMessage.contains("is missing or incorrect"));
+            }
+            else if(messagetype.equalsIgnoreCase("path param")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Mandatory path parameter") && ActualMessage.contains("is missing or invalid"));
+            }
+            else if(messagetype.equalsIgnoreCase("query param")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("Mandatory query parameter") && ActualMessage.contains("is missing or invalid"));
+            }
         }
     }
 }
