@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "correlationId": {
@@ -86,10 +87,10 @@
                             "isWorkingDog": {
                               "type": "boolean"
                             },
-                            "zip": {
+                            "state": {
                               "type": "string"
                             },
-                            "state": {
+                            "zip": {
                               "type": "string"
                             },
                             "countryCode": {
@@ -158,31 +159,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -199,31 +210,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -240,31 +261,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -298,31 +329,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -339,31 +380,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -380,171 +431,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "coPay"
-                                          ]
-                                        },
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "string"
-                                            },
-                                            "coPay": {
-                                              "type": "array",
-                                              "items": [
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -595,31 +516,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -636,31 +567,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -677,31 +618,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -735,31 +686,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -776,31 +737,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -817,608 +788,41 @@
                                                       "type": "integer"
                                                     },
                                                     "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     },
                                                     "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "monthly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "quarterly": {
                                                           "type": "number"
                                                         },
-                                                        {
+                                                        "annually": {
                                                           "type": "number"
                                                         }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "coPay"
-                                          ]
-                                        },
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "string"
-                                            },
-                                            "coPay": {
-                                              "type": "array",
-                                              "items": [
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "coPay"
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "amount",
-                                    "deductible"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "amount": {
-                                      "type": "string"
-                                    },
-                                    "deductible": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "string"
-                                            },
-                                            "coPay": {
-                                              "type": "array",
-                                              "items": [
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "coPay"
-                                          ]
-                                        },
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "string"
-                                            },
-                                            "coPay": {
-                                              "type": "array",
-                                              "items": [
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "required": [
-                                            "amount",
-                                            "coPay"
-                                          ]
-                                        },
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "amount": {
-                                              "type": "string"
-                                            },
-                                            "coPay": {
-                                              "type": "array",
-                                              "items": [
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "percentage",
-                                                    "premium",
-                                                    "taxAndServicePremium"
-                                                  ]
-                                                },
-                                                {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "percentage": {
-                                                      "type": "integer"
-                                                    },
-                                                    "premium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
-                                                      ]
-                                                    },
-                                                    "taxAndServicePremium": {
-                                                      "type": "array",
-                                                      "items": [
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        },
-                                                        {
-                                                          "type": "number"
-                                                        }
+                                                      },
+                                                      "required": [
+                                                        "monthly",
+                                                        "quarterly",
+                                                        "annually"
                                                       ]
                                                     }
                                                   },
@@ -1471,259 +875,50 @@
                                       "type": "string"
                                     },
                                     "annualPolicyMaximumLimit": {
-                                      "type": "integer"
+                                      "type": "string"
                                     },
                                     "coPayPercentage": {
-                                      "type": "integer"
+                                      "type": "number"
                                     },
                                     "annualDeductibleDollarAmount": {
-                                      "type": "integer"
+                                      "type": "number"
                                     },
                                     "premium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
+                                      "type": "object",
+                                      "properties": {
+                                        "monthly": {
                                           "type": "number"
                                         },
-                                        {
+                                        "quarterly": {
                                           "type": "number"
                                         },
-                                        {
+                                        "annually": {
                                           "type": "number"
                                         }
+                                      },
+                                      "required": [
+                                        "monthly",
+                                        "quarterly",
+                                        "annually"
                                       ]
                                     },
                                     "taxAndServicePremium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
+                                      "type": "object",
+                                      "properties": {
+                                        "monthly": {
                                           "type": "number"
                                         },
-                                        {
+                                        "quarterly": {
                                           "type": "number"
                                         },
-                                        {
+                                        "annually": {
                                           "type": "number"
                                         }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "version",
-                                    "chosenQuote",
-                                    "priceAffinityType",
-                                    "isCustom",
-                                    "deductibleType",
-                                    "annualPolicyMaximumLimit",
-                                    "coPayPercentage",
-                                    "annualDeductibleDollarAmount",
-                                    "premium",
-                                    "taxAndServicePremium"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "version": {
-                                      "type": "string"
-                                    },
-                                    "chosenQuote": {
-                                      "type": "boolean"
-                                    },
-                                    "priceAffinityType": {
-                                      "type": "string"
-                                    },
-                                    "isCustom": {
-                                      "type": "boolean"
-                                    },
-                                    "deductibleType": {
-                                      "type": "string"
-                                    },
-                                    "annualPolicyMaximumLimit": {
-                                      "type": "integer"
-                                    },
-                                    "coPayPercentage": {
-                                      "type": "integer"
-                                    },
-                                    "annualDeductibleDollarAmount": {
-                                      "type": "integer"
-                                    },
-                                    "premium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
-                                      ]
-                                    },
-                                    "taxAndServicePremium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "version",
-                                    "chosenQuote",
-                                    "priceAffinityType",
-                                    "isCustom",
-                                    "deductibleType",
-                                    "annualPolicyMaximumLimit",
-                                    "coPayPercentage",
-                                    "annualDeductibleDollarAmount",
-                                    "premium",
-                                    "taxAndServicePremium"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "version": {
-                                      "type": "string"
-                                    },
-                                    "chosenQuote": {
-                                      "type": "boolean"
-                                    },
-                                    "priceAffinityType": {
-                                      "type": "string"
-                                    },
-                                    "isCustom": {
-                                      "type": "boolean"
-                                    },
-                                    "deductibleType": {
-                                      "type": "string"
-                                    },
-                                    "annualPolicyMaximumLimit": {
-                                      "type": "integer"
-                                    },
-                                    "coPayPercentage": {
-                                      "type": "integer"
-                                    },
-                                    "annualDeductibleDollarAmount": {
-                                      "type": "integer"
-                                    },
-                                    "premium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
-                                      ]
-                                    },
-                                    "taxAndServicePremium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "version",
-                                    "chosenQuote",
-                                    "priceAffinityType",
-                                    "isCustom",
-                                    "deductibleType",
-                                    "annualPolicyMaximumLimit",
-                                    "coPayPercentage",
-                                    "annualDeductibleDollarAmount",
-                                    "premium",
-                                    "taxAndServicePremium"
-                                  ]
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "type": "string"
-                                    },
-                                    "version": {
-                                      "type": "string"
-                                    },
-                                    "chosenQuote": {
-                                      "type": "boolean"
-                                    },
-                                    "priceAffinityType": {
-                                      "type": "string"
-                                    },
-                                    "isCustom": {
-                                      "type": "boolean"
-                                    },
-                                    "deductibleType": {
-                                      "type": "string"
-                                    },
-                                    "annualPolicyMaximumLimit": {
-                                      "type": "integer"
-                                    },
-                                    "coPayPercentage": {
-                                      "type": "integer"
-                                    },
-                                    "annualDeductibleDollarAmount": {
-                                      "type": "integer"
-                                    },
-                                    "premium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
-                                      ]
-                                    },
-                                    "taxAndServicePremium": {
-                                      "type": "array",
-                                      "items": [
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        },
-                                        {
-                                          "type": "number"
-                                        }
+                                      },
+                                      "required": [
+                                        "monthly",
+                                        "quarterly",
+                                        "annually"
                                       ]
                                     }
                                   },
@@ -1774,8 +969,8 @@
                             "weight",
                             "hasMicrochip",
                             "isWorkingDog",
-                            "zip",
                             "state",
+                            "zip",
                             "countryCode",
                             "generalQuoteRequest",
                             "rateMatrix",
@@ -1832,10 +1027,31 @@
               ]
             }
           ]
+        },
+        "errors": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "errorCode": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "errorCode",
+                "message"
+              ]
+            }
+          ]
         }
       },
       "required": [
-        "responses"
+        "responses",
+        "errors"
       ]
     }
   },

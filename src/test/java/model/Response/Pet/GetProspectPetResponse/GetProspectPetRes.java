@@ -1,8 +1,8 @@
 
-package model.Response.Quote.CreateQuoteResponse;
+package model.Response.Pet.GetProspectPetResponse;
 
 
-public class CreateQuoteRes {
+public class GetProspectPetRes {
 
     private String correlationId;
     private Payload payload;

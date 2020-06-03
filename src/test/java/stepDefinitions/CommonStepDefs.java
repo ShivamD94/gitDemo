@@ -80,13 +80,21 @@ public class CommonStepDefs extends TestBase {
                 Assert.assertTrue("Error message does not match for Error Array "+i,
                         ActualMessage.contains("Required field") && ActualMessage.contains("is missing or incorrect"));
             }
-            else if(messagetype.equalsIgnoreCase("path param")){
+            else if(messagetype.equalsIgnoreCase("PATH PARAM")){
                 Assert.assertTrue("Error message does not match for Error Array "+i,
                         ActualMessage.contains("Mandatory path parameter") && ActualMessage.contains("is missing or invalid"));
             }
-            else if(messagetype.equalsIgnoreCase("query param")){
+            else if(messagetype.equalsIgnoreCase("QUERY PARAM")){
                 Assert.assertTrue("Error message does not match for Error Array "+i,
                         ActualMessage.contains("Mandatory query parameter") && ActualMessage.contains("is missing or invalid"));
+            }
+            else if(messagetype.equalsIgnoreCase("NO DATA FOUND")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("no data found"));
+            }
+            else if(messagetype.equalsIgnoreCase("BAD DATA")){
+                Assert.assertTrue("Error message does not match for Error Array "+i,
+                        ActualMessage.contains("bad data"));
             }
         }
     }

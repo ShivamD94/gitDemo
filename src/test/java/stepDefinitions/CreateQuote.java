@@ -16,10 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static Utility.PropertyHolder.getProperty;
-import static Utility.PropertyHolder.setProperty;
-import static data.Quote_TestData.addquotepayload;
-import static data.Quote_TestData.saveQuotePayload;
+import static Utility.PropertyHolder.*;
+import static data.Quote_TestData.*;
 import static io.restassured.RestAssured.given;
 
 public class CreateQuote extends TestBase {
@@ -27,17 +25,17 @@ public class CreateQuote extends TestBase {
     @When("User hit the POST quote request")
     public void user_hit_the_POST_quote_request(DataTable dataTable) throws IOException {
         Map<String, String> testData = new HashMap<>(dataTable.asMap(String.class, String.class));
-        setProperty("Email",testData.get("email"));
+
         setProperty("PetType",testData.get("pettype"));
         setProperty("BreedId",testData.get("breedid"));
         setProperty("Gender",testData.get("gender"));
         setProperty("State",testData.get("state"));
         setProperty("Zip",testData.get("zip"));
-        setProperty("CountryCode",testData.get("countrycode"));
+        setProperty("Country",testData.get("countrycode"));
 
-        reqSpec = given().spec(requestSpesification()).body(addquotepayload(getProperty("Email"),getProperty("PetType"),
-                getProperty("BreedId"),getProperty("Gender"),getProperty("State"),
-                getProperty("Zip"),getProperty("CountryCode")));
+        reqSpec = given().spec(requestSpesification()).body(addquotepayload(testData.get("petId"),testData.get("customerId"),testData.get("email"),
+                getProperty("PetType"),getProperty("BreedId"),getProperty("Gender"),getProperty("State"),
+                getProperty("Zip"),getProperty("Country")));
         response = reqSpec.when().post(getProperty("URI"));
 
     }
@@ -46,19 +44,16 @@ public class CreateQuote extends TestBase {
     public void user_fetches_QuoteID_value() {
         AddQuoteResponse quoteres = response.getBody().as(AddQuoteResponse.class);
         Pet petresponse = quoteres.getPayload().getResponses().get(0).getCustomer().getPets().get(0);
-        
-        String QuoteID = petresponse.getQuotes().get(0).getId();
-        setProperty("QuoteID", QuoteID);
-        String quoteversion = petresponse.getQuotes().get(0).getVersion();
-        setProperty("quoteversion",quoteversion);
-        Assert.assertEquals(QuoteID,getProperty("QuoteID"));
-        Assert.assertEquals(quoteversion,getProperty("quoteversion"));
-        String PetType = petresponse.getPetType();
-        String BreedId = petresponse.getBreedId();
-        Assert.assertEquals(PetType,getProperty("PetType"));
 
-        Assert.assertEquals(BreedId,getProperty("BreedId"));
+        setProperty("QuoteID", petresponse.getQuotes().get(0).getId());
+        setProperty("QuoteVersion",petresponse.getQuotes().get(0).getVersion());
+        setProperty("ProspectID",quoteres.getPayload().getResponses().get(0).getCustomer().getCustomerId());
+        setProperty("PetID",petresponse.getPetId());
+        Assert.assertEquals(petresponse.getPetType(),getProperty("PetType"));
+        Assert.assertEquals(petresponse.getBreedId(),getProperty("BreedId"));
         Assert.assertNotNull("Rate Matrix returned is Null",petresponse.getRateMatrix());
+
+
     }
 
     @When("^User hit the POST aggregate quote request$")

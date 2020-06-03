@@ -7,12 +7,16 @@ import io.cucumber.datatable.DataTable;
 import model.Response.Pet.CreatePetProspectResponse.CreatePetProspectRes;
 import model.Response.Pet.GetBreedData.GetBreedDataRes;
 import model.Response.Pet.GetPetBreed.GetPetBreedRes;
+import model.Response.Pet.GetProspectPetResponse.GetProspectPetRes;
+import model.Response.Pet.GetProspectPetResponse.Response;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static Utility.PropertyHolder.getProperty;
 import static data.Pet_TestData.*;
 import static io.restassured.RestAssured.given;
 import static Utility.PropertyHolder.*;
@@ -86,5 +90,17 @@ public class CreatePet extends TestBase {
     public void user_fetch_the_breedid(){
         GetBreedDataRes res=response.as(GetBreedDataRes.class);
         setProperty("PetBreed",res.getPayload().getResponses().get(0).getBreedId());
+    }
+
+    @And("^User verify the get prospect pet data$")
+    public void user_verify_the_get_prospect_pet_data(){
+        GetProspectPetRes res=response.as(GetProspectPetRes.class);
+        Response petRes=res.getPayload().getResponses().get(0);
+        Assert.assertEquals(getProperty("PetID"),petRes.getId());
+        Assert.assertEquals(getProperty("PetName"),petRes.getName());
+        Assert.assertEquals(getProperty("PetType"),petRes.getType());
+        Assert.assertEquals(getProperty("BreedId"),petRes.getBreedId());
+        Assert.assertEquals(getProperty("Zip"),petRes.getZipcode());
+        Assert.assertEquals(getProperty("State"),petRes.getState());
     }
 }

@@ -1,5 +1,5 @@
 
-package model.Response.Quote.CreateQuoteResponse;
+package model.Response.Pet.GetProspectPetResponse;
 
 
 public class Link {
